@@ -1,0 +1,6 @@
+"NamingContext","Type","DnsRoot","NetBIOSName","Enabled","IsRootDseAdvertised","IsDefault","IsConfiguration","IsSchema","IsDomain","IsApplication","IsDnsApplication","ReplicaLocations","ReadOnlyReplicaLocations","SourceCollection","Notes"
+"DC=contoso,DC=com","Domain","contoso.com","CONTOSO","true","true","true","false","false","true","false","false","","","mock-contoso.20260622T000000Z.forest-config.collection.json",""
+"CN=Configuration,DC=contoso,DC=com","Configuration","","","","true","false","true","false","false","false","false","","","mock-contoso.20260622T000000Z.forest-config.collection.json",""
+"CN=Schema,CN=Configuration,DC=contoso,DC=com","Schema","","","","true","false","false","true","false","false","false","","","mock-contoso.20260622T000000Z.forest-config.collection.json",""
+"DC=DomainDnsZones,DC=contoso,DC=com","DNSApplication","DomainDnsZones.contoso.com","","true","true","false","false","false","false","true","true","DC01; DC02","","mock-contoso.20260622T000000Z.forest-config.collection.json",""
+"DC=ForestDnsZones,DC=contoso,DC=com","DNSApplication","ForestDnsZones.contoso.com","","true","true","false","false","false","false","true","true","CDC01; DC01","","mock-contoso.20260622T000000Z.forest-config.collection.json",""

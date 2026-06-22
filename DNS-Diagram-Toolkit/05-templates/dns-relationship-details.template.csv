@@ -1,0 +1,2 @@
+DnsEdgeId,Source,SourceType,Relationship,Target,TargetType,ZoneName,RecordType,Direction,SiteName,SubnetName,TargetSiteName,TargetSubnetName,DnsServer,Order,Priority,Status,SourceCollectionServer,Notes
+D01,dns01.contoso.com,DnsServer,HostsZone,contoso.com,DnsZone,contoso.com,SOA,SourceToTarget,Default-First-Site-Name,10.0.0.0/24,,,dns01.contoso.com,,,Discovered,dns01.contoso.com,Example row

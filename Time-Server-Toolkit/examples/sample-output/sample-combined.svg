@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="854" viewBox="0 0 1800 854">
+<defs>
+<marker id="arrow-SyncsFrom" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+<marker id="arrow-ConfiguredPeer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker>
+<marker id="arrow-UsesLocalClock" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/></marker>
+<marker id="arrow-UsesHypervisor" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+<marker id="arrow-UnknownSource" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+<marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+</defs>
+<rect x="0" y="0" width="1800" height="854" fill="#f8fafc"/>
+<text x="56" y="50" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="800" fill="#111827" text-anchor="start">
+<tspan x="56" dy="0">Time Source Map - Combined View</tspan>
+</text>
+<text x="56" y="78" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="56" dy="0">Windows Time source relationships. Edge IDs map to time-relationship-details.csv.</tspan>
+</text>
+<text x="1320" y="38" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1320" dy="0">Relationship Legend</tspan>
+</text>
+<line x1="1320" y1="60" x2="1354" y2="60" stroke="#2563eb" stroke-width="3"/>
+<text x="1364" y="64" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1364" dy="0">Active source</tspan>
+</text>
+<line x1="1320" y1="82" x2="1354" y2="82" stroke="#7c3aed" stroke-width="3"/>
+<text x="1364" y="86" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1364" dy="0">Configured peer</tspan>
+</text>
+<line x1="1320" y1="104" x2="1354" y2="104" stroke="#dc2626" stroke-width="3"/>
+<text x="1364" y="108" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1364" dy="0">Local clock</tspan>
+</text>
+<line x1="1320" y1="126" x2="1354" y2="126" stroke="#0891b2" stroke-width="3"/>
+<text x="1364" y="130" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1364" dy="0">Hypervisor</tspan>
+</text>
+<line x1="1320" y1="148" x2="1354" y2="148" stroke="#64748b" stroke-width="3"/>
+<text x="1364" y="152" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1364" dy="0">Unknown</tspan>
+</text>
+<rect x="56" y="120" width="470" height="248" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="76" y="150" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="76" dy="0">Servers serving time</tspan>
+</text>
+<rect x="76" y="172" width="430" height="78" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
+<text x="90" y="198" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="90" dy="0">DC02.contoso.com</tspan>
+</text>
+<text x="90" y="232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="90" dy="0">Time server | DomainHierarchy | Stratum 4</tspan>
+</text>
+<rect x="76" y="268" width="430" height="78" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
+<text x="90" y="294" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="90" dy="0">PDC01.contoso.com</tspan>
+</text>
+<text x="90" y="328" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="90" dy="0">Time server | ManualNtp | Stratum 3</tspan>
+</text>
+<rect x="56" y="402" width="470" height="248" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="76" y="432" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="76" dy="0">Servers consuming time</tspan>
+</text>
+<rect x="76" y="454" width="430" height="78" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="90" y="480" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="90" dy="0">APP01.contoso.com</tspan>
+</text>
+<text x="90" y="514" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="90" dy="0">Time client | DomainHierarchy | Stratum 5</tspan>
+</text>
+<rect x="76" y="550" width="430" height="78" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="90" y="576" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="90" dy="0">SQL01.contoso.com</tspan>
+</text>
+<text x="90" y="610" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="90" dy="0">Time client | Hypervisor | Stratum 4</tspan>
+</text>
+<rect x="1160" y="120" width="540" height="248" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1180" y="150" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1180" dy="0">DomainTimeSource</tspan>
+</text>
+<rect x="1180" y="172" width="500" height="78" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="1194" y="198" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1194" dy="0">DC02.contoso.com</tspan>
+</text>
+<text x="1194" y="232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1194" dy="0">SyncsFrom | DomainHierarchy</tspan>
+</text>
+<rect x="1180" y="268" width="500" height="78" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="1194" y="294" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1194" dy="0">PDC01.contoso.com</tspan>
+</text>
+<text x="1194" y="328" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1194" dy="0">SyncsFrom | DomainHierarchy</tspan>
+</text>
+<rect x="1160" y="402" width="540" height="152" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1180" y="432" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1180" dy="0">Hypervisor</tspan>
+</text>
+<rect x="1180" y="454" width="500" height="78" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="1194" y="480" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1194" dy="0">VM IC Time Synchronization</tspan>
+<tspan x="1194" dy="17">Provider</tspan>
+</text>
+<text x="1194" y="514" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1194" dy="0">UsesHypervisor | Hypervisor</tspan>
+</text>
+<rect x="1160" y="588" width="540" height="152" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1180" y="618" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1180" dy="0">NtpPeer</tspan>
+</text>
+<rect x="1180" y="640" width="500" height="78" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="1194" y="666" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1194" dy="0">time.cloudflare.com</tspan>
+</text>
+<text x="1194" y="700" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1194" dy="0">SyncsFrom | ManualNtp</tspan>
+</text>
+<path d="M 506 307.0 C 728.4200000000001 307.0, 957.5799999999999 679.0, 1180 679.0" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-opacity="0.80" marker-end="url(#arrow-SyncsFrom)"/>
+<rect x="821.0" y="480.0" width="44" height="22" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="1"/>
+<text x="843.0" y="497.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#2563eb" text-anchor="middle">
+<tspan x="843.0" dy="0">T01</tspan>
+</text>
+<path d="M 506 211.0 C 728.4200000000001 211.0, 957.5799999999999 307.0, 1180 307.0" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-opacity="0.80" marker-end="url(#arrow-SyncsFrom)"/>
+<rect x="821.0" y="246.0" width="44" height="22" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="1"/>
+<text x="843.0" y="263.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#2563eb" text-anchor="middle">
+<tspan x="843.0" dy="0">T02</tspan>
+</text>
+<path d="M 506 493.0 C 728.4200000000001 493.0, 957.5799999999999 211.0, 1180 211.0" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-opacity="0.80" marker-end="url(#arrow-SyncsFrom)"/>
+<rect x="821.0" y="339.0" width="44" height="22" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="1"/>
+<text x="843.0" y="356.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#2563eb" text-anchor="middle">
+<tspan x="843.0" dy="0">T03</tspan>
+</text>
+<path d="M 506 589.0 C 728.4200000000001 589.0, 957.5799999999999 493.0, 1180 493.0" fill="none" stroke="#0891b2" stroke-width="2.2" stroke-opacity="0.80" marker-end="url(#arrow-UsesHypervisor)"/>
+<rect x="821.0" y="528.0" width="44" height="22" rx="5" fill="#ffffff" stroke="#0891b2" stroke-width="1"/>
+<text x="843.0" y="545.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#0891b2" text-anchor="middle">
+<tspan x="843.0" dy="0">T04</tspan>
+</text>
+<text x="56" y="826" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="56" dy="0">4 time-source relationships rendered.</tspan>
+</text>
+</svg>

@@ -1,0 +1,3 @@
+ForestConfigEdgeId,Source,SourceType,Relationship,Target,TargetType,PartitionType,NamingContext,DomainName,ReplicaServers,Status,SourceCollection,Notes
+F001,contoso.com,Forest,ContainsDomain,contoso.com,Domain,,DC=contoso,DC=com,contoso.com,,Observed,example.collection.json,Sample row
+

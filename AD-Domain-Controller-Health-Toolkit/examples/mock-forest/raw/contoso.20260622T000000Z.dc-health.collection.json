@@ -1,0 +1,233 @@
+{
+  "Metadata": {
+    "CollectionType": "ADDomainControllerHealth",
+    "CollectorComputer": "COLLECTOR01",
+    "CollectorUser": "CONTOSO\\analyst",
+    "Server": "dc01.contoso.com",
+    "ForestName": "contoso.com",
+    "DomainName": [
+      "contoso.com"
+    ],
+    "DomainController": [],
+    "CredentialUsed": false,
+    "TimestampUtc": "2026-06-22T00:00:00Z",
+    "PowerShellVersion": "5.1.20348.1",
+    "ActiveDirectoryModuleVersion": "1.0.1.0",
+    "CollectionStatus": "Success",
+    "CollectionStartedUtc": "2026-06-22T00:00:00Z",
+    "CollectionCompletedUtc": "2026-06-22T00:02:00Z",
+    "ResolvedForestName": "contoso.com",
+    "ResolvedDomainNames": [
+      "contoso.com"
+    ]
+  },
+  "Forest": {
+    "Name": "contoso.com",
+    "RootDomain": "contoso.com",
+    "ForestMode": "Windows2016Forest",
+    "Domains": [
+      "contoso.com"
+    ],
+    "GlobalCatalogs": [
+      "dc01.contoso.com",
+      "dc02.contoso.com"
+    ],
+    "SchemaMaster": "dc01.contoso.com",
+    "DomainNamingMaster": "dc01.contoso.com"
+  },
+  "Domains": [
+    {
+      "DomainName": "contoso.com",
+      "NetBIOSName": "CONTOSO",
+      "DistinguishedName": "DC=contoso,DC=com",
+      "DomainMode": "Windows2016Domain",
+      "PDCEmulator": "dc01.contoso.com",
+      "RIDMaster": "dc01.contoso.com",
+      "InfrastructureMaster": "dc02.contoso.com"
+    }
+  ],
+  "DomainControllers": [
+    {
+      "Name": "DC01",
+      "HostName": "dc01.contoso.com",
+      "DomainName": "contoso.com",
+      "ForestName": "contoso.com",
+      "SiteName": "HQ",
+      "IPv4Addresses": [
+        "10.10.10.11"
+      ],
+      "IPv6Addresses": [],
+      "IsGlobalCatalog": true,
+      "IsReadOnly": false,
+      "Enabled": true,
+      "OperatingSystem": "Windows Server 2022 Datacenter",
+      "OperatingSystemVersion": "10.0 (20348)",
+      "BuildNumber": "20348",
+      "OperationMasterRoles": [
+        "SchemaMaster",
+        "DomainNamingMaster",
+        "PDCEmulator",
+        "RIDMaster"
+      ],
+      "LdapPort": 389,
+      "SslPort": 636,
+      "ComputerObjectDN": "CN=DC01,OU=Domain Controllers,DC=contoso,DC=com",
+      "DistinguishedName": "CN=DC01,OU=Domain Controllers,DC=contoso,DC=com",
+      "UserAccountControl": 532480
+    },
+    {
+      "Name": "DC02",
+      "HostName": "dc02.contoso.com",
+      "DomainName": "contoso.com",
+      "ForestName": "contoso.com",
+      "SiteName": "Branch-01",
+      "IPv4Addresses": [
+        "10.20.10.12"
+      ],
+      "IPv6Addresses": [],
+      "IsGlobalCatalog": true,
+      "IsReadOnly": false,
+      "Enabled": true,
+      "OperatingSystem": "Windows Server 2019 Datacenter",
+      "OperatingSystemVersion": "10.0 (17763)",
+      "BuildNumber": "17763",
+      "OperationMasterRoles": [
+        "InfrastructureMaster"
+      ],
+      "LdapPort": 389,
+      "SslPort": 636,
+      "ComputerObjectDN": "CN=DC02,OU=Domain Controllers,DC=contoso,DC=com",
+      "DistinguishedName": "CN=DC02,OU=Domain Controllers,DC=contoso,DC=com",
+      "UserAccountControl": 532480
+    },
+    {
+      "Name": "DC03",
+      "HostName": "dc03.contoso.com",
+      "DomainName": "contoso.com",
+      "ForestName": "contoso.com",
+      "SiteName": "Branch-01",
+      "IPv4Addresses": [
+        "10.20.10.13"
+      ],
+      "IPv6Addresses": [],
+      "IsGlobalCatalog": false,
+      "IsReadOnly": true,
+      "Enabled": true,
+      "OperatingSystem": "Windows Server 2019 Standard",
+      "OperatingSystemVersion": "10.0 (17763)",
+      "BuildNumber": "17763",
+      "OperationMasterRoles": [],
+      "LdapPort": 389,
+      "SslPort": 636,
+      "ComputerObjectDN": "CN=DC03,OU=Domain Controllers,DC=contoso,DC=com",
+      "DistinguishedName": "CN=DC03,OU=Domain Controllers,DC=contoso,DC=com",
+      "UserAccountControl": 83890176
+    }
+  ],
+  "FSMORoles": [
+    {
+      "RoleName": "SchemaMaster",
+      "ScopeType": "Forest",
+      "ScopeName": "contoso.com",
+      "RoleHolder": "dc01.contoso.com",
+      "RoleHolderLdap389Open": true,
+      "RoleHolderReachabilityStatus": "Reachable",
+      "RoleHolderReachabilityLatencyMilliseconds": 18,
+      "RoleHolderReachabilityEvidence": "Open"
+    },
+    {
+      "RoleName": "DomainNamingMaster",
+      "ScopeType": "Forest",
+      "ScopeName": "contoso.com",
+      "RoleHolder": "dc01.contoso.com",
+      "RoleHolderLdap389Open": true,
+      "RoleHolderReachabilityStatus": "Reachable",
+      "RoleHolderReachabilityLatencyMilliseconds": 18,
+      "RoleHolderReachabilityEvidence": "Open"
+    },
+    {
+      "RoleName": "PDCEmulator",
+      "ScopeType": "Domain",
+      "ScopeName": "contoso.com",
+      "RoleHolder": "dc01.contoso.com",
+      "RoleHolderLdap389Open": true,
+      "RoleHolderReachabilityStatus": "Reachable",
+      "RoleHolderReachabilityLatencyMilliseconds": 18,
+      "RoleHolderReachabilityEvidence": "Open"
+    },
+    {
+      "RoleName": "RIDMaster",
+      "ScopeType": "Domain",
+      "ScopeName": "contoso.com",
+      "RoleHolder": "dc01.contoso.com",
+      "RoleHolderLdap389Open": true,
+      "RoleHolderReachabilityStatus": "Reachable",
+      "RoleHolderReachabilityLatencyMilliseconds": 18,
+      "RoleHolderReachabilityEvidence": "Open"
+    },
+    {
+      "RoleName": "InfrastructureMaster",
+      "ScopeType": "Domain",
+      "ScopeName": "contoso.com",
+      "RoleHolder": "dc02.contoso.com",
+      "RoleHolderLdap389Open": true,
+      "RoleHolderReachabilityStatus": "Reachable",
+      "RoleHolderReachabilityLatencyMilliseconds": 31,
+      "RoleHolderReachabilityEvidence": "Open"
+    }
+  ],
+  "Services": [
+    { "DcHostName": "dc01.contoso.com", "ServiceName": "NTDS", "DisplayName": "Active Directory Domain Services", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "ServiceName": "Netlogon", "DisplayName": "Netlogon", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "ServiceName": "DFSR", "DisplayName": "DFS Replication", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "ServiceName": "DNS", "DisplayName": "DNS Server", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "ServiceName": "KDC", "DisplayName": "Kerberos Key Distribution Center", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "ServiceName": "W32Time", "DisplayName": "Windows Time", "Status": "Running", "State": "Running", "StartMode": "Manual", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ServiceName": "NTDS", "DisplayName": "Active Directory Domain Services", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ServiceName": "Netlogon", "DisplayName": "Netlogon", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ServiceName": "DFSR", "DisplayName": "DFS Replication", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ServiceName": "DNS", "DisplayName": "DNS Server", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ServiceName": "KDC", "DisplayName": "Kerberos Key Distribution Center", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ServiceName": "W32Time", "DisplayName": "Windows Time", "Status": "Running", "State": "Running", "StartMode": "Manual", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ServiceName": "NTDS", "DisplayName": "Active Directory Domain Services", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ServiceName": "Netlogon", "DisplayName": "Netlogon", "Status": "Stopped", "State": "Stopped", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ServiceName": "DFSR", "DisplayName": "DFS Replication", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ServiceName": "DNS", "DisplayName": "DNS Server", "Status": "NotFound", "State": "NotFound", "StartMode": "", "CheckStatus": "NotFound", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ServiceName": "KDC", "DisplayName": "Kerberos Key Distribution Center", "Status": "Running", "State": "Running", "StartMode": "Auto", "CheckStatus": "Collected", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ServiceName": "W32Time", "DisplayName": "Windows Time", "Status": "Running", "State": "Running", "StartMode": "Manual", "CheckStatus": "Collected", "Error": "" }
+  ],
+  "Shares": [
+    { "DcHostName": "dc01.contoso.com", "ShareName": "SYSVOL", "UncPath": "\\\\dc01.contoso.com\\SYSVOL", "Present": true, "Status": "Present", "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "ShareName": "NETLOGON", "UncPath": "\\\\dc01.contoso.com\\NETLOGON", "Present": true, "Status": "Present", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ShareName": "SYSVOL", "UncPath": "\\\\dc02.contoso.com\\SYSVOL", "Present": true, "Status": "Present", "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "ShareName": "NETLOGON", "UncPath": "\\\\dc02.contoso.com\\NETLOGON", "Present": true, "Status": "Present", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ShareName": "SYSVOL", "UncPath": "\\\\dc03.contoso.com\\SYSVOL", "Present": false, "Status": "Missing", "Error": "" },
+    { "DcHostName": "dc03.contoso.com", "ShareName": "NETLOGON", "UncPath": "\\\\dc03.contoso.com\\NETLOGON", "Present": false, "Status": "Missing", "Error": "" }
+  ],
+  "PortChecks": [
+    { "DcHostName": "dc01.contoso.com", "PortName": "LDAP", "Protocol": "TCP", "Port": 389, "Open": true, "Status": "Open", "LatencyMilliseconds": 18, "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "PortName": "LDAPS", "Protocol": "TCP", "Port": 636, "Open": true, "Status": "Open", "LatencyMilliseconds": 20, "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "PortName": "GC", "Protocol": "TCP", "Port": 3268, "Open": true, "Status": "Open", "LatencyMilliseconds": 19, "Error": "" },
+    { "DcHostName": "dc01.contoso.com", "PortName": "GC-LDAPS", "Protocol": "TCP", "Port": 3269, "Open": true, "Status": "Open", "LatencyMilliseconds": 21, "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "PortName": "LDAP", "Protocol": "TCP", "Port": 389, "Open": true, "Status": "Open", "LatencyMilliseconds": 30, "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "PortName": "LDAPS", "Protocol": "TCP", "Port": 636, "Open": false, "Status": "Closed", "LatencyMilliseconds": 31, "Error": "Connection refused" },
+    { "DcHostName": "dc02.contoso.com", "PortName": "GC", "Protocol": "TCP", "Port": 3268, "Open": true, "Status": "Open", "LatencyMilliseconds": 31, "Error": "" },
+    { "DcHostName": "dc02.contoso.com", "PortName": "GC-LDAPS", "Protocol": "TCP", "Port": 3269, "Open": false, "Status": "Closed", "LatencyMilliseconds": 32, "Error": "Connection refused" },
+    { "DcHostName": "dc03.contoso.com", "PortName": "LDAP", "Protocol": "TCP", "Port": 389, "Open": false, "Status": "Timeout", "LatencyMilliseconds": 1500, "Error": "Connection timed out after 1500 ms." },
+    { "DcHostName": "dc03.contoso.com", "PortName": "LDAPS", "Protocol": "TCP", "Port": 636, "Open": false, "Status": "Closed", "LatencyMilliseconds": 11, "Error": "Connection refused" },
+    { "DcHostName": "dc03.contoso.com", "PortName": "GC", "Protocol": "TCP", "Port": 3268, "Open": false, "Status": "Closed", "LatencyMilliseconds": 11, "Error": "Connection refused" },
+    { "DcHostName": "dc03.contoso.com", "PortName": "GC-LDAPS", "Protocol": "TCP", "Port": 3269, "Open": false, "Status": "Closed", "LatencyMilliseconds": 11, "Error": "Connection refused" }
+  ],
+  "SrvRecords": [
+    { "QueryName": "_ldap._tcp.dc._msdcs.contoso.com", "Service": "LDAP", "Scope": "ForestDcLocator", "DomainName": "contoso.com", "SiteName": "", "NameTarget": "dc01.contoso.com", "Port": 389, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" },
+    { "QueryName": "_ldap._tcp.dc._msdcs.contoso.com", "Service": "LDAP", "Scope": "ForestDcLocator", "DomainName": "contoso.com", "SiteName": "", "NameTarget": "dc02.contoso.com", "Port": 389, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" },
+    { "QueryName": "_gc._tcp.contoso.com", "Service": "GC", "Scope": "ForestGcLocator", "DomainName": "contoso.com", "SiteName": "", "NameTarget": "dc01.contoso.com", "Port": 3268, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" },
+    { "QueryName": "_gc._tcp.contoso.com", "Service": "GC", "Scope": "ForestGcLocator", "DomainName": "contoso.com", "SiteName": "", "NameTarget": "dc02.contoso.com", "Port": 3268, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" },
+    { "QueryName": "_ldap._tcp.HQ._sites.contoso.com", "Service": "LDAP", "Scope": "SiteDomain", "DomainName": "contoso.com", "SiteName": "HQ", "NameTarget": "dc01.contoso.com", "Port": 389, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" },
+    { "QueryName": "_ldap._tcp.Branch-01._sites.contoso.com", "Service": "LDAP", "Scope": "SiteDomain", "DomainName": "contoso.com", "SiteName": "Branch-01", "NameTarget": "dc02.contoso.com", "Port": 389, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" },
+    { "QueryName": "_kerberos._tcp.contoso.com", "Service": "Kerberos", "Scope": "Domain", "DomainName": "contoso.com", "SiteName": "", "NameTarget": "dc01.contoso.com", "Port": 88, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" },
+    { "QueryName": "_kerberos._tcp.contoso.com", "Service": "Kerberos", "Scope": "Domain", "DomainName": "contoso.com", "SiteName": "", "NameTarget": "dc02.contoso.com", "Port": 88, "Priority": 0, "Weight": 100, "QueryStatus": "Resolved", "Error": "" }
+  ],
+  "CollectionWarnings": [],
+  "CollectionErrors": []
+}

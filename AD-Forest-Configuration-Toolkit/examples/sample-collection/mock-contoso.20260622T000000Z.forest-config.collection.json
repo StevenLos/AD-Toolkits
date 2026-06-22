@@ -1,0 +1,382 @@
+{
+  "Metadata": {
+    "CollectionType": "ADForestConfiguration",
+    "CollectorComputer": "ADMIN01",
+    "CollectorUser": "CONTOSO\\ad-reader",
+    "QueriedServer": "dc01.contoso.com",
+    "RequestedForestName": "contoso.com",
+    "TimestampUtc": "2026-06-22T00:00:00.0000000Z",
+    "PowerShellVersion": "5.1.19041.4648",
+    "ActiveDirectoryModuleVersion": "1.0.1.0",
+    "CollectionStatus": "Completed",
+    "CollectionStartedUtc": "2026-06-22T00:00:00.0000000Z",
+    "CollectionCompletedUtc": "2026-06-22T00:00:03.0000000Z"
+  },
+  "RootDSE": {
+    "defaultNamingContext": "DC=contoso,DC=com",
+    "configurationNamingContext": "CN=Configuration,DC=contoso,DC=com",
+    "schemaNamingContext": "CN=Schema,CN=Configuration,DC=contoso,DC=com",
+    "rootDomainNamingContext": "DC=contoso,DC=com",
+    "namingContexts": [
+      "DC=contoso,DC=com",
+      "CN=Configuration,DC=contoso,DC=com",
+      "CN=Schema,CN=Configuration,DC=contoso,DC=com",
+      "DC=DomainDnsZones,DC=contoso,DC=com",
+      "DC=ForestDnsZones,DC=contoso,DC=com"
+    ],
+    "dnsHostName": "dc01.contoso.com",
+    "domainControllerFunctionality": "7",
+    "domainFunctionality": "7",
+    "forestFunctionality": "7",
+    "isGlobalCatalogReady": true,
+    "supportedLDAPVersion": [
+      3,
+      2
+    ],
+    "supportedCapabilities": [],
+    "supportedControl": [],
+    "dsServiceName": "CN=NTDS Settings,CN=DC01,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=contoso,DC=com"
+  },
+  "Forest": {
+    "Name": "contoso.com",
+    "RootDomain": "contoso.com",
+    "ForestMode": "Windows2016Forest",
+    "SchemaMaster": "dc01.contoso.com",
+    "DomainNamingMaster": "dc01.contoso.com",
+    "Domains": [
+      "contoso.com",
+      "corp.contoso.com"
+    ],
+    "GlobalCatalogs": [
+      "dc01.contoso.com",
+      "dc02.contoso.com",
+      "cdc01.corp.contoso.com"
+    ],
+    "Sites": [
+      "Default-First-Site-Name",
+      "Chicago"
+    ],
+    "ApplicationPartitions": [
+      "DC=DomainDnsZones,DC=contoso,DC=com",
+      "DC=ForestDnsZones,DC=contoso,DC=com"
+    ],
+    "PartitionsContainer": "CN=Partitions,CN=Configuration,DC=contoso,DC=com",
+    "UPNSuffixes": [
+      "contoso.com",
+      "contoso.net"
+    ],
+    "SPNSuffixes": []
+  },
+  "Domains": [
+    {
+      "Name": "contoso",
+      "DNSRoot": "contoso.com",
+      "NetBIOSName": "CONTOSO",
+      "Forest": "contoso.com",
+      "DomainMode": "Windows2016Domain",
+      "DistinguishedName": "DC=contoso,DC=com",
+      "DomainSID": "S-1-5-21-1000-1000-1000",
+      "ParentDomain": "",
+      "ChildDomains": [
+        "corp.contoso.com"
+      ],
+      "PDCEmulator": "dc01.contoso.com",
+      "RIDMaster": "dc01.contoso.com",
+      "InfrastructureMaster": "dc02.contoso.com",
+      "ReplicaDirectoryServers": [
+        "dc01.contoso.com",
+        "dc02.contoso.com"
+      ],
+      "ReadOnlyReplicaDirectoryServers": [],
+      "UsersContainer": "CN=Users,DC=contoso,DC=com",
+      "ComputersContainer": "CN=Computers,DC=contoso,DC=com",
+      "DomainControllersContainer": "OU=Domain Controllers,DC=contoso,DC=com",
+      "DeletedObjectsContainer": "CN=Deleted Objects,DC=contoso,DC=com",
+      "QuotasContainer": "CN=NTDS Quotas,DC=contoso,DC=com",
+      "DomainSettings": {
+        "msDS-Behavior-Version": 7,
+        "nTMixedDomain": 0,
+        "ms-DS-MachineAccountQuota": 10,
+        "pwdProperties": 1,
+        "pwdHistoryLength": 24,
+        "minPwdLength": 14,
+        "minPwdAge": "1.00:00:00",
+        "maxPwdAge": "60.00:00:00",
+        "lockoutThreshold": 5,
+        "lockoutDuration": "0.00:30:00"
+      }
+    },
+    {
+      "Name": "corp",
+      "DNSRoot": "corp.contoso.com",
+      "NetBIOSName": "CORP",
+      "Forest": "contoso.com",
+      "DomainMode": "Windows2016Domain",
+      "DistinguishedName": "DC=corp,DC=contoso,DC=com",
+      "DomainSID": "S-1-5-21-2000-2000-2000",
+      "ParentDomain": "contoso.com",
+      "ChildDomains": [],
+      "PDCEmulator": "cdc01.corp.contoso.com",
+      "RIDMaster": "cdc01.corp.contoso.com",
+      "InfrastructureMaster": "cdc01.corp.contoso.com",
+      "ReplicaDirectoryServers": [
+        "cdc01.corp.contoso.com"
+      ],
+      "ReadOnlyReplicaDirectoryServers": [],
+      "UsersContainer": "CN=Users,DC=corp,DC=contoso,DC=com",
+      "ComputersContainer": "CN=Computers,DC=corp,DC=contoso,DC=com",
+      "DomainControllersContainer": "OU=Domain Controllers,DC=corp,DC=contoso,DC=com",
+      "DeletedObjectsContainer": "CN=Deleted Objects,DC=corp,DC=contoso,DC=com",
+      "QuotasContainer": "CN=NTDS Quotas,DC=corp,DC=contoso,DC=com",
+      "DomainSettings": {
+        "msDS-Behavior-Version": 7,
+        "nTMixedDomain": 0,
+        "ms-DS-MachineAccountQuota": 10,
+        "pwdProperties": 1,
+        "pwdHistoryLength": 24,
+        "minPwdLength": 14,
+        "minPwdAge": "1.00:00:00",
+        "maxPwdAge": "60.00:00:00",
+        "lockoutThreshold": 5,
+        "lockoutDuration": "0.00:30:00"
+      }
+    }
+  ],
+  "Schema": {
+    "NamingContext": "CN=Schema,CN=Configuration,DC=contoso,DC=com",
+    "ObjectVersion": 88,
+    "ProductHint": "Windows Server 2019 or Windows Server 2022",
+    "SchemaMaster": "dc01.contoso.com",
+    "WhenCreated": "2018-01-10T16:30:00.0000000Z",
+    "WhenChanged": "2025-04-12T19:11:00.0000000Z"
+  },
+  "DirectoryServiceSettings": {
+    "DistinguishedName": "CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=contoso,DC=com",
+    "tombstoneLifetime": 180,
+    "msDS-DeletedObjectLifetime": 180,
+    "garbageCollPeriod": 12,
+    "dSHeuristics": "",
+    "whenCreated": "2018-01-10T16:30:00.0000000Z",
+    "whenChanged": "2024-05-03T14:22:00.0000000Z"
+  },
+  "NamingContexts": [
+    {
+      "NamingContext": "DC=contoso,DC=com",
+      "Type": "Domain",
+      "Source": "RootDSE",
+      "IsDefault": true,
+      "IsConfiguration": false,
+      "IsSchema": false,
+      "IsDomain": true,
+      "IsApplication": false,
+      "IsDnsApplication": false
+    },
+    {
+      "NamingContext": "CN=Configuration,DC=contoso,DC=com",
+      "Type": "Configuration",
+      "Source": "RootDSE",
+      "IsDefault": false,
+      "IsConfiguration": true,
+      "IsSchema": false,
+      "IsDomain": false,
+      "IsApplication": false,
+      "IsDnsApplication": false
+    },
+    {
+      "NamingContext": "CN=Schema,CN=Configuration,DC=contoso,DC=com",
+      "Type": "Schema",
+      "Source": "RootDSE",
+      "IsDefault": false,
+      "IsConfiguration": false,
+      "IsSchema": true,
+      "IsDomain": false,
+      "IsApplication": false,
+      "IsDnsApplication": false
+    },
+    {
+      "NamingContext": "DC=DomainDnsZones,DC=contoso,DC=com",
+      "Type": "DNSApplication",
+      "Source": "RootDSE",
+      "IsDefault": false,
+      "IsConfiguration": false,
+      "IsSchema": false,
+      "IsDomain": false,
+      "IsApplication": true,
+      "IsDnsApplication": true
+    },
+    {
+      "NamingContext": "DC=ForestDnsZones,DC=contoso,DC=com",
+      "Type": "DNSApplication",
+      "Source": "RootDSE",
+      "IsDefault": false,
+      "IsConfiguration": false,
+      "IsSchema": false,
+      "IsDomain": false,
+      "IsApplication": true,
+      "IsDnsApplication": true
+    }
+  ],
+  "Partitions": [
+    {
+      "Name": "contoso",
+      "DistinguishedName": "CN=contoso,CN=Partitions,CN=Configuration,DC=contoso,DC=com",
+      "NamingContext": "DC=contoso,DC=com",
+      "PartitionType": "Domain",
+      "IsDnsApplicationPartition": false,
+      "DnsRoot": "contoso.com",
+      "NetBIOSName": "CONTOSO",
+      "Enabled": true,
+      "SystemFlags": 3,
+      "BehaviorVersion": 7,
+      "ReplicaLocations": [],
+      "ReadOnlyReplicaLocations": [],
+      "RawReplicaLocationDns": [],
+      "RawReadOnlyReplicaLocationDns": [],
+      "WhenCreated": "2018-01-10T16:30:00.0000000Z",
+      "WhenChanged": "2025-05-01T12:00:00.0000000Z"
+    },
+    {
+      "Name": "DomainDnsZones",
+      "DistinguishedName": "CN=DomainDnsZones,CN=Partitions,CN=Configuration,DC=contoso,DC=com",
+      "NamingContext": "DC=DomainDnsZones,DC=contoso,DC=com",
+      "PartitionType": "DNSApplication",
+      "IsDnsApplicationPartition": true,
+      "DnsRoot": "DomainDnsZones.contoso.com",
+      "NetBIOSName": "",
+      "Enabled": true,
+      "SystemFlags": 5,
+      "BehaviorVersion": 7,
+      "ReplicaLocations": [
+        {
+          "ServerName": "DC01",
+          "SiteName": "Default-First-Site-Name",
+          "DistinguishedName": "CN=NTDS Settings,CN=DC01,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=contoso,DC=com"
+        },
+        {
+          "ServerName": "DC02",
+          "SiteName": "Chicago",
+          "DistinguishedName": "CN=NTDS Settings,CN=DC02,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=contoso,DC=com"
+        }
+      ],
+      "ReadOnlyReplicaLocations": [],
+      "RawReplicaLocationDns": [
+        "CN=NTDS Settings,CN=DC01,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=contoso,DC=com",
+        "CN=NTDS Settings,CN=DC02,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=contoso,DC=com"
+      ],
+      "RawReadOnlyReplicaLocationDns": [],
+      "WhenCreated": "2018-01-10T16:30:00.0000000Z",
+      "WhenChanged": "2025-05-01T12:00:00.0000000Z"
+    },
+    {
+      "Name": "ForestDnsZones",
+      "DistinguishedName": "CN=ForestDnsZones,CN=Partitions,CN=Configuration,DC=contoso,DC=com",
+      "NamingContext": "DC=ForestDnsZones,DC=contoso,DC=com",
+      "PartitionType": "DNSApplication",
+      "IsDnsApplicationPartition": true,
+      "DnsRoot": "ForestDnsZones.contoso.com",
+      "NetBIOSName": "",
+      "Enabled": true,
+      "SystemFlags": 5,
+      "BehaviorVersion": 7,
+      "ReplicaLocations": [
+        {
+          "ServerName": "DC01",
+          "SiteName": "Default-First-Site-Name",
+          "DistinguishedName": "CN=NTDS Settings,CN=DC01,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=contoso,DC=com"
+        },
+        {
+          "ServerName": "CDC01",
+          "SiteName": "Chicago",
+          "DistinguishedName": "CN=NTDS Settings,CN=CDC01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=contoso,DC=com"
+        }
+      ],
+      "ReadOnlyReplicaLocations": [],
+      "RawReplicaLocationDns": [
+        "CN=NTDS Settings,CN=DC01,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=contoso,DC=com",
+        "CN=NTDS Settings,CN=CDC01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=contoso,DC=com"
+      ],
+      "RawReadOnlyReplicaLocationDns": [],
+      "WhenCreated": "2018-01-10T16:30:00.0000000Z",
+      "WhenChanged": "2025-05-01T12:00:00.0000000Z"
+    }
+  ],
+  "OptionalFeatures": [
+    {
+      "Name": "Recycle Bin Feature",
+      "DistinguishedName": "CN=Recycle Bin Feature,CN=Optional Features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=contoso,DC=com",
+      "FeatureGUID": "4bd37140-e9a8-11d1-9ebc-0000f80367c1",
+      "FeatureScope": "ForestOrConfigurationSet",
+      "RequiredForestMode": "Windows2008R2Forest",
+      "EnabledScopes": [
+        "CN=Partitions,CN=Configuration,DC=contoso,DC=com"
+      ],
+      "IsEnabled": true,
+      "IsRecycleBinFeature": true
+    }
+  ],
+  "UpnSuffixes": [
+    "contoso.com",
+    "contoso.net"
+  ],
+  "SpnSuffixes": [],
+  "SitesGcContext": {
+    "SiteCount": 2,
+    "Sites": [
+      "Default-First-Site-Name",
+      "Chicago"
+    ],
+    "GlobalCatalogs": [
+      "dc01.contoso.com",
+      "dc02.contoso.com",
+      "cdc01.corp.contoso.com"
+    ],
+    "DomainControllers": [
+      {
+        "DomainName": "contoso.com",
+        "HostName": "dc01.contoso.com",
+        "Name": "DC01",
+        "Site": "Default-First-Site-Name",
+        "IsGlobalCatalog": true,
+        "IPv4Address": "10.10.1.10",
+        "OperatingSystem": "Windows Server 2022 Datacenter",
+        "OperatingSystemVersion": "10.0 (20348)",
+        "OperationMasterRoles": [
+          "SchemaMaster",
+          "DomainNamingMaster",
+          "PDCEmulator",
+          "RIDMaster"
+        ]
+      },
+      {
+        "DomainName": "contoso.com",
+        "HostName": "dc02.contoso.com",
+        "Name": "DC02",
+        "Site": "Chicago",
+        "IsGlobalCatalog": true,
+        "IPv4Address": "10.20.1.10",
+        "OperatingSystem": "Windows Server 2022 Datacenter",
+        "OperatingSystemVersion": "10.0 (20348)",
+        "OperationMasterRoles": [
+          "InfrastructureMaster"
+        ]
+      },
+      {
+        "DomainName": "corp.contoso.com",
+        "HostName": "cdc01.corp.contoso.com",
+        "Name": "CDC01",
+        "Site": "Chicago",
+        "IsGlobalCatalog": true,
+        "IPv4Address": "10.20.2.10",
+        "OperatingSystem": "Windows Server 2022 Datacenter",
+        "OperatingSystemVersion": "10.0 (20348)",
+        "OperationMasterRoles": [
+          "PDCEmulator",
+          "RIDMaster",
+          "InfrastructureMaster"
+        ]
+      }
+    ]
+  },
+  "CollectionWarnings": [],
+  "CollectionErrors": []
+}

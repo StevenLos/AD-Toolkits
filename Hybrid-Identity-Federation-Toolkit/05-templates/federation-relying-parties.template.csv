@@ -1,0 +1,2 @@
+RpId,Name,Identifier,Enabled,ProtocolProfile,AccessControlPolicyName,IssuanceAuthorizationRulesSummary,IssuanceTransformRulesSummary,ClaimRulesSummary,TokenLifetime,EncryptionCertificateExpires,SignatureAlgorithm,SourceCollection,Notes
+

@@ -1,0 +1,2 @@
+"FailureId","SourceServer","SourceSite","DestinationServer","DestinationSite","NamingContext","FirstFailure","LastFailure","ConsecutiveFailureCount","ResultCode","ResultMessage","FailureType","Status","Notes"
+"RPFAIL-HQ-DR-1722","hqdc01.corp.example.com","HQ","drdc01.corp.example.com","DR-Site","DC=corp,DC=example,DC=com","2026-06-22T16:42:00.0000000Z","2026-06-22T17:42:00.0000000Z","2","1722","The RPC server is unavailable.","ReplicationFailure","Failing","Observed replication failure. This is read-only health evidence, not remediation."

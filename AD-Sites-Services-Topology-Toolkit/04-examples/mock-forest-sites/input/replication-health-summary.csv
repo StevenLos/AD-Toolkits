@@ -1,0 +1,6 @@
+"DomainController","SiteName","PartnerMetadataCount","ConfiguredConnectionCount","FailureCount","QueueOperationCount","LastSuccess","LastFailure","Status","Notes"
+"eastdc01.corp.example.com","Branch-East","1","1","0","0","2026-06-22T17:52:00.0000000Z","","Healthy","Read-only summary from configured connection objects and observed replication metadata where available."
+"westdc01.corp.example.com","Branch-West","1","1","0","0","2026-06-22T17:49:00.0000000Z","","Healthy","Read-only summary from configured connection objects and observed replication metadata where available."
+"drdc01.corp.example.com","DR-Site","2","1","1","1","2026-06-22T17:45:00.0000000Z","2026-06-22T17:42:00.0000000Z","Failing","Read-only summary from configured connection objects and observed replication metadata where available."
+"hqdc01.corp.example.com","HQ","4","3","1","1","2026-06-22T17:52:00.0000000Z","2026-06-22T17:42:00.0000000Z","Failing","Read-only summary from configured connection objects and observed replication metadata where available."
+"hqdc02.corp.example.com","HQ","0","0","0","0","","","NoData","No replication metadata rows were present for this mock domain controller."

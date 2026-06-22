@@ -1,0 +1,8 @@
+"SubnetId","SiteObjectId","SiteName","SubnetName","Cidr","Location","Description","InScope","Status","Notes"
+"SUBNET-001","","","10.99.0.0/24","10.99.0.0/24","Unknown","Unassigned subnet for validation warning coverage","Review","Discovered","Subnet is not assigned to a known AD site."
+"SUBNET-002","SITE-BRANCH-EAST","Branch-East","10.20.0.0/24","10.20.0.0/24","New York","East office subnet","Yes","Discovered",""
+"SUBNET-003","SITE-BRANCH-WEST","Branch-West","10.30.0.0/24","10.30.0.0/24","Denver","West office subnet","Yes","Discovered",""
+"SUBNET-004","SITE-CLOUD-EDGE","Cloud-Edge","10.50.0.0/24","10.50.0.0/24","Azure US Central","Cloud edge subnet","Yes","Discovered",""
+"SUBNET-005","SITE-DR-SITE","DR-Site","10.40.0.0/24","10.40.0.0/24","Dallas","DR server subnet","Yes","Discovered",""
+"SUBNET-006","SITE-HQ","HQ","10.10.0.0/24","10.10.0.0/24","Chicago datacenter","HQ server subnet","Yes","Discovered",""
+"SUBNET-007","SITE-HQ","HQ","10.10.10.0/24","10.10.10.0/24","Chicago campus","HQ client subnet","Yes","Discovered",""

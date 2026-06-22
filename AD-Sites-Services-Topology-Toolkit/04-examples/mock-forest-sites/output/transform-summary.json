@@ -1,0 +1,90 @@
+{
+  "GeneratedUtc": "2026-06-22T18:58:54.7393180Z",
+  "SourceFiles": [
+    "04-examples/mock-forest-sites/raw/mock-forest.20260622T000000Z.sites.collection.json"
+  ],
+  "ForestNames": [
+    "corp.example.com"
+  ],
+  "DomainNames": [
+    "corp.example.com"
+  ],
+  "Counts": {
+    "Sites": 5,
+    "SiteLinksRaw": 4,
+    "LineOfSightLinks": 5,
+    "PortsProtocols": 80,
+    "DomainControllers": 5,
+    "Subnets": 7,
+    "ReplicationConnections": 3,
+    "ReplicationPartnerMetadata": 4,
+    "ReplicationFailures": 1,
+    "ReplicationTopologyEdges": 8,
+    "ReplicationHealthSummary": 5,
+    "Warnings": 2
+  },
+  "LineOfSightContributors": {
+    "LOS-SITE-BRANCH-EAST-SITE-HQ": [
+      {
+        "SiteLinkName": "DEFAULTIPSITELINK",
+        "Transport": "IP",
+        "Cost": "100",
+        "ReplicationFrequencyInMinutes": "180",
+        "SitesIncluded": "Branch-East; HQ",
+        "DistinguishedName": "CN=DEFAULTIPSITELINK,CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=corp,DC=example,DC=com"
+      }
+    ],
+    "LOS-SITE-BRANCH-WEST-SITE-DR-SITE": [
+      {
+        "SiteLinkName": "Backbone-West-DR",
+        "Transport": "IP",
+        "Cost": "50",
+        "ReplicationFrequencyInMinutes": "60",
+        "SitesIncluded": "Branch-West; DR-Site; HQ",
+        "DistinguishedName": "CN=Backbone-West-DR,CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=corp,DC=example,DC=com"
+      }
+    ],
+    "LOS-SITE-BRANCH-WEST-SITE-HQ": [
+      {
+        "SiteLinkName": "Backbone-West-DR",
+        "Transport": "IP",
+        "Cost": "50",
+        "ReplicationFrequencyInMinutes": "60",
+        "SitesIncluded": "Branch-West; DR-Site; HQ",
+        "DistinguishedName": "CN=Backbone-West-DR,CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=corp,DC=example,DC=com"
+      }
+    ],
+    "LOS-SITE-CLOUD-EDGE-SITE-DR-SITE": [
+      {
+        "SiteLinkName": "DR-Cloud-Edge",
+        "Transport": "IP",
+        "Cost": "200",
+        "ReplicationFrequencyInMinutes": "120",
+        "SitesIncluded": "Cloud-Edge; DR-Site",
+        "DistinguishedName": "CN=DR-Cloud-Edge,CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=corp,DC=example,DC=com"
+      }
+    ],
+    "LOS-SITE-DR-SITE-SITE-HQ": [
+      {
+        "SiteLinkName": "Backbone-West-DR",
+        "Transport": "IP",
+        "Cost": "50",
+        "ReplicationFrequencyInMinutes": "60",
+        "SitesIncluded": "Branch-West; DR-Site; HQ",
+        "DistinguishedName": "CN=Backbone-West-DR,CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=corp,DC=example,DC=com"
+      },
+      {
+        "SiteLinkName": "HQ-DR-Express",
+        "Transport": "IP",
+        "Cost": "25",
+        "ReplicationFrequencyInMinutes": "30",
+        "SitesIncluded": "DR-Site; HQ",
+        "DistinguishedName": "CN=HQ-DR-Express,CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=corp,DC=example,DC=com"
+      }
+    ]
+  },
+  "Warnings": [
+    "Subnet '10.99.0.0/24' has no known site assignment.",
+    "Site 'Cloud-Edge' has no discovered domain controllers. This can be expected when automatic site coverage is in use."
+  ]
+}

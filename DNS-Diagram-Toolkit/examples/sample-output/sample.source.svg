@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="686" viewBox="0 0 1800 686">
+<defs>
+<marker id="arrow-HostsZone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+<marker id="arrow-ForwardsTo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/></marker>
+<marker id="arrow-ConditionalForwarder" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker>
+<marker id="arrow-DelegatesTo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+<marker id="arrow-AuthoritativeNS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/></marker>
+<marker id="arrow-RootHint" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/></marker>
+<marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+</defs>
+<rect x="0" y="0" width="1800" height="686" fill="#f8fafc"/>
+<text x="56" y="50" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">
+<tspan x="56" dy="0">DNS Map - Source View</tspan>
+</text>
+<text x="56" y="78" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="56" dy="0">One lane per DNS server with hosted zones and forwarding relationships.</tspan>
+</text>
+<rect x="64" y="116" width="1672" height="184" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="84" y="138" width="390" height="76" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="98" y="164" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a" text-anchor="start">
+<tspan x="98" dy="0">dns02.corp.example.com</tspan>
+</text>
+<text x="98" y="196" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="98" dy="0">Site: Branch | Subnet: 10.20.0.0/24</tspan>
+</text>
+<rect x="494" y="138" width="1202" height="76" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="508" y="164" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f172a" text-anchor="start">
+<tspan x="508" dy="0">Relationship Summary</tspan>
+</text>
+<text x="508" y="196" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="508" dy="0">ForwardsTo: 1, HostsZone: 1</tspan>
+</text>
+<rect x="84" y="216" width="1632" height="30" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="92" y="236" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="92" dy="0">ID</tspan>
+</text>
+<text x="162" y="236" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="162" dy="0">Relationship</tspan>
+</text>
+<text x="342" y="236" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="342" dy="0">Target</tspan>
+</text>
+<text x="682" y="236" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="682" dy="0">Zone</tspan>
+</text>
+<text x="942" y="236" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="942" dy="0">Record</tspan>
+</text>
+<text x="1030" y="236" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="1030" dy="0">Status</tspan>
+</text>
+<text x="1140" y="236" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="1140" dy="0">Notes</tspan>
+</text>
+<rect x="84" y="250" width="1632" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+<text x="92" y="271" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="92" dy="0">D04</tspan>
+</text>
+<text x="162" y="271" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="162" dy="0">ForwardsTo</tspan>
+</text>
+<text x="342" y="271" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="342" dy="0">8.8.8.8</tspan>
+</text>
+<text x="682" y="271" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="682" dy="0"></tspan>
+</text>
+<text x="942" y="271" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="942" dy="0">Forwarder</tspan>
+</text>
+<text x="1030" y="271" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1030" dy="0">Discovered</tspan>
+</text>
+<text x="1140" y="271" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1140" dy="0">Internet recursive forwarder</tspan>
+</text>
+<rect x="84" y="284" width="1632" height="34" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.6"/>
+<text x="92" y="305" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="92" dy="0">D02</tspan>
+</text>
+<text x="162" y="305" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="162" dy="0">HostsZone</tspan>
+</text>
+<text x="342" y="305" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="342" dy="0">corp.example.com</tspan>
+</text>
+<text x="682" y="305" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="682" dy="0">corp.example.com</tspan>
+</text>
+<text x="942" y="305" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="942" dy="0">SOA</tspan>
+</text>
+<text x="1030" y="305" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1030" dy="0">Discovered</tspan>
+</text>
+<text x="1140" y="305" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1140" dy="0">Replica of corporate zone</tspan>
+</text>
+<rect x="64" y="328" width="1672" height="286" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="84" y="350" width="390" height="76" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="98" y="376" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a" text-anchor="start">
+<tspan x="98" dy="0">dns01.corp.example.com</tspan>
+</text>
+<text x="98" y="408" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="98" dy="0">Site: HQ | Subnet: 10.10.0.0/24</tspan>
+</text>
+<rect x="494" y="350" width="1202" height="76" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="508" y="376" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f172a" text-anchor="start">
+<tspan x="508" dy="0">Relationship Summary</tspan>
+</text>
+<text x="508" y="408" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="508" dy="0">AuthoritativeNS: 1, ConditionalForwarder: 1,</tspan>
+<tspan x="508" dy="17">DelegatesTo: 1, HostsZone: 1, RootHint: 1</tspan>
+</text>
+<rect x="84" y="428" width="1632" height="30" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="92" y="448" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="92" dy="0">ID</tspan>
+</text>
+<text x="162" y="448" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="162" dy="0">Relationship</tspan>
+</text>
+<text x="342" y="448" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="342" dy="0">Target</tspan>
+</text>
+<text x="682" y="448" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="682" dy="0">Zone</tspan>
+</text>
+<text x="942" y="448" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="942" dy="0">Record</tspan>
+</text>
+<text x="1030" y="448" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="1030" dy="0">Status</tspan>
+</text>
+<text x="1140" y="448" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="start">
+<tspan x="1140" dy="0">Notes</tspan>
+</text>
+<rect x="84" y="462" width="1632" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+<text x="92" y="483" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="92" dy="0">D06</tspan>
+</text>
+<text x="162" y="483" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="162" dy="0">AuthoritativeNS</tspan>
+</text>
+<text x="342" y="483" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="342" dy="0">dns01.corp.example.com</tspan>
+</text>
+<text x="682" y="483" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="682" dy="0">corp.example.com</tspan>
+</text>
+<text x="942" y="483" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="942" dy="0">NS</tspan>
+</text>
+<text x="1030" y="483" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1030" dy="0">Discovered</tspan>
+</text>
+<text x="1140" y="483" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1140" dy="0">Authoritative name server</tspan>
+</text>
+<rect x="84" y="496" width="1632" height="34" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.6"/>
+<text x="92" y="517" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="92" dy="0">D03</tspan>
+</text>
+<text x="162" y="517" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="162" dy="0">ConditionalForwarder</tspan>
+</text>
+<text x="342" y="517" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="342" dy="0">partners.example.net</tspan>
+</text>
+<text x="682" y="517" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="682" dy="0">partners.example.net</tspan>
+</text>
+<text x="942" y="517" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="942" dy="0">Forwarder</tspan>
+</text>
+<text x="1030" y="517" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1030" dy="0">Discovered</tspan>
+</text>
+<text x="1140" y="517" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1140" dy="0">Conditional forwarder for partner namespace</tspan>
+</text>
+<rect x="84" y="530" width="1632" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+<text x="92" y="551" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="92" dy="0">D05</tspan>
+</text>
+<text x="162" y="551" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="162" dy="0">DelegatesTo</tspan>
+</text>
+<text x="342" y="551" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="342" dy="0">lab.corp.example.com</tspan>
+</text>
+<text x="682" y="551" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="682" dy="0">lab.corp.example.com</tspan>
+</text>
+<text x="942" y="551" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="942" dy="0">NS</tspan>
+</text>
+<text x="1030" y="551" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1030" dy="0">Discovered</tspan>
+</text>
+<text x="1140" y="551" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1140" dy="0">Delegated lab subdomain</tspan>
+</text>
+<rect x="84" y="564" width="1632" height="34" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.6"/>
+<text x="92" y="585" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="92" dy="0">D01</tspan>
+</text>
+<text x="162" y="585" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="162" dy="0">HostsZone</tspan>
+</text>
+<text x="342" y="585" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="342" dy="0">corp.example.com</tspan>
+</text>
+<text x="682" y="585" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="682" dy="0">corp.example.com</tspan>
+</text>
+<text x="942" y="585" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="942" dy="0">SOA</tspan>
+</text>
+<text x="1030" y="585" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1030" dy="0">Discovered</tspan>
+</text>
+<text x="1140" y="585" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1140" dy="0">Primary AD-integrated corporate zone</tspan>
+</text>
+<rect x="84" y="598" width="1632" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.6"/>
+<text x="92" y="619" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="92" dy="0">D07</tspan>
+</text>
+<text x="162" y="619" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="162" dy="0">RootHint</tspan>
+</text>
+<text x="342" y="619" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="342" dy="0">a.root-servers.net</tspan>
+</text>
+<text x="682" y="619" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="682" dy="0"></tspan>
+</text>
+<text x="942" y="619" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="942" dy="0">RootHint</tspan>
+</text>
+<text x="1030" y="619" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1030" dy="0">Discovered</tspan>
+</text>
+<text x="1140" y="619" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#0f172a" text-anchor="start">
+<tspan x="1140" dy="0">Root hint dependency</tspan>
+</text>
+</svg>

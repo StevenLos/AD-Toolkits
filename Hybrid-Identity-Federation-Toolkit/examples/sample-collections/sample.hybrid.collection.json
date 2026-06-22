@@ -1,0 +1,165 @@
+{
+  "Metadata": {
+    "Source": "HybridIdentityFederationToolkitSample",
+    "GeneratedAtUtc": "2026-06-22T00:00:00Z",
+    "ComputerName": "SYNC01",
+    "CollectionStatus": "Sample"
+  },
+  "Host": {
+    "ComputerName": "SYNC01",
+    "OsName": "Windows Server 2022"
+  },
+  "EntraConnect": {
+    "Scheduler": {
+      "SyncCycleEnabled": true,
+      "StagingModeEnabled": false
+    },
+    "CompanyFeatures": {
+      "PasswordHashSyncEnabled": true,
+      "PassThroughAuthenticationEnabled": true,
+      "PasswordWritebackEnabled": true,
+      "GroupWritebackEnabled": false,
+      "DeviceWritebackEnabled": true,
+      "ExchangeHybridDeployment": true
+    },
+    "Tenant": "contoso.onmicrosoft.com",
+    "GlobalSettings": {
+      "SourceAnchor": "mS-DS-ConsistencyGuid",
+      "ImmutableIdAttribute": "sourceAnchorBinary"
+    },
+    "Connectors": [
+      {
+        "Name": "contoso.com",
+        "ConnectorTypeName": "Active Directory Domain Services",
+        "ForestName": "contoso.com",
+        "Enabled": true,
+        "Partitions": "DC=contoso,DC=com",
+        "IncludedOUs": "OU=Users,DC=contoso,DC=com; OU=Groups,DC=contoso,DC=com",
+        "ExcludedOUs": "OU=Disabled,DC=contoso,DC=com",
+        "ConnectorSpaceObjectCount": 18452,
+        "LastImport": "2026-06-22T01:00:00Z",
+        "LastExport": "2026-06-22T01:10:00Z",
+        "LastSync": "2026-06-22T01:10:00Z"
+      },
+      {
+        "Name": "Microsoft Entra ID",
+        "ConnectorTypeName": "Windows Azure Active Directory",
+        "Tenant": "contoso.onmicrosoft.com",
+        "Enabled": true,
+        "ConnectorSpaceObjectCount": 18121,
+        "LastImport": "2026-06-22T01:05:00Z",
+        "LastExport": "2026-06-22T01:12:00Z"
+      }
+    ],
+    "SyncRules": [
+      {
+        "Name": "In from AD - User Join",
+        "Direction": "Inbound",
+        "Precedence": 100,
+        "ConnectorName": "contoso.com",
+        "ConnectedSystem": "contoso.com",
+        "LinkType": "Join",
+        "SourceObjectType": "user",
+        "TargetObjectType": "person",
+        "Enabled": true,
+        "ImmutableTag": "sample",
+        "Transformations": [
+          { "TargetAttributeName": "sourceAnchorBinary", "FlowType": "Expression" },
+          { "TargetAttributeName": "userPrincipalName", "FlowType": "Direct" }
+        ],
+        "JoinRules": [
+          { "Attribute": "sourceAnchorBinary" }
+        ]
+      },
+      {
+        "Name": "Out to AD - User Exchange Hybrid",
+        "Direction": "Outbound",
+        "Precedence": 200,
+        "ConnectorName": "contoso.com",
+        "ConnectedSystem": "contoso.com",
+        "LinkType": "Provision",
+        "SourceObjectType": "person",
+        "TargetObjectType": "user",
+        "Enabled": true,
+        "Transformations": [
+          { "TargetAttributeName": "msExchRemoteRecipientType", "FlowType": "Direct" }
+        ]
+      }
+    ]
+  },
+  "PassThroughAuthentication": {
+    "AgentServices": [
+      {
+        "Name": "AzureADConnectAuthenticationAgent",
+        "DisplayName": "Microsoft Entra Connect Authentication Agent",
+        "Status": "Running"
+      }
+    ],
+    "HealthIndicators": [
+      {
+        "Name": "LocalServiceEvidence",
+        "Value": "Detected"
+      }
+    ]
+  },
+  "Adfs": {
+    "FarmInformation": {
+      "FarmName": "adfs.contoso.com",
+      "FarmBehavior": "2019",
+      "FarmNodes": "ADFS01; ADFS02"
+    },
+    "Properties": {
+      "HostName": "adfs.contoso.com",
+      "FederationServiceIdentifier": "http://adfs.contoso.com/adfs/services/trust"
+    },
+    "Certificates": [
+      {
+        "CertificateType": "Token-Signing",
+        "IsPrimary": true,
+        "Subject": "CN=ADFS Token Signing",
+        "Thumbprint": "1111111111111111111111111111111111111111",
+        "NotBefore": "2025-07-15T00:00:00Z",
+        "NotAfter": "2026-07-15T00:00:00Z"
+      },
+      {
+        "CertificateType": "Token-Decrypting",
+        "IsPrimary": true,
+        "Subject": "CN=ADFS Token Decrypting",
+        "Thumbprint": "2222222222222222222222222222222222222222",
+        "NotBefore": "2025-07-15T00:00:00Z",
+        "NotAfter": "2027-07-15T00:00:00Z"
+      }
+    ],
+    "RelyingPartyTrusts": [
+      {
+        "Name": "Microsoft 365",
+        "Identifier": "urn:federation:MicrosoftOnline",
+        "Enabled": true,
+        "ProtocolProfile": "WsFed-SAML",
+        "AccessControlPolicyName": "Permit everyone",
+        "IssuanceTransformRules": "c:[Type == \"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn\"] => issue(claim = c);",
+        "TokenLifetime": 60,
+        "SignatureAlgorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+      },
+      {
+        "Name": "Finance SaaS",
+        "Identifier": "https://finance.example.invalid/saml",
+        "Enabled": true,
+        "ProtocolProfile": "SAML",
+        "IssuanceTransformRules": "c:[Type == \"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\"] => issue(claim = c);",
+        "TokenLifetime": 480,
+        "SignatureAlgorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+      }
+    ]
+  },
+  "Wap": {
+    "Servers": "WAP01; WAP02"
+  },
+  "CollectionWarnings": [
+    {
+      "Step": "Sample",
+      "Message": "Sample collection for offline pipeline validation."
+    }
+  ],
+  "CollectionErrors": []
+}

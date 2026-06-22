@@ -1,0 +1,6 @@
+"ExpansionId","SiteObjectId","SiteName","DomainName","ServerName","ServerRole","Environment","Location","NetworkZone","IpAddress","IsGlobalCatalog","IsReadOnly","OperatingSystem","InScope","Status","Notes"
+"DC-001","SITE-BRANCH-EAST","Branch-East","corp.example.com","eastdc01.corp.example.com","Domain Controller","Production","","Directory Services","10.20.0.10","False","True","Windows Server 2019","Yes","Discovered","RODC"
+"DC-002","SITE-BRANCH-WEST","Branch-West","corp.example.com","westdc01.corp.example.com","Domain Controller","Production","","Directory Services","10.30.0.10","True","False","Windows Server 2022","Yes","Discovered","Global Catalog"
+"DC-003","SITE-DR-SITE","DR-Site","corp.example.com","drdc01.corp.example.com","Domain Controller","Production","","Directory Services","10.40.0.10","False","False","Windows Server 2019","Yes","Discovered",""
+"DC-004","SITE-HQ","HQ","corp.example.com","hqdc01.corp.example.com","Domain Controller","Production","","Directory Services","10.10.0.10","True","False","Windows Server 2022","Yes","Discovered","Global Catalog"
+"DC-005","SITE-HQ","HQ","corp.example.com","hqdc02.corp.example.com","Domain Controller","Production","","Directory Services","10.10.0.11","False","False","Windows Server 2019","Yes","Discovered",""

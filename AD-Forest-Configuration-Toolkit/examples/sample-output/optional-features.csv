@@ -1,0 +1,2 @@
+"FeatureName","FeatureGuid","FeatureScope","RequiredForestMode","EnabledScopes","IsEnabled","IsRecycleBinFeature","SourceCollection","Notes"
+"Recycle Bin Feature","4bd37140-e9a8-11d1-9ebc-0000f80367c1","ForestOrConfigurationSet","Windows2008R2Forest","CN=Partitions,CN=Configuration,DC=contoso,DC=com","true","true","mock-contoso.20260622T000000Z.forest-config.collection.json",""

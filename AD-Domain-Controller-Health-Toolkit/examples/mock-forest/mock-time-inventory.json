@@ -1,0 +1,60 @@
+{
+  "Metadata": {
+    "Source": "TimeServerCollections",
+    "GeneratedAtUtc": "2026-06-22T00:03:00Z",
+    "CollectionCount": 3,
+    "ServerCount": 3,
+    "RelationshipCount": 3
+  },
+  "Servers": [
+    {
+      "ServerName": "dc01.contoso.com",
+      "Fqdn": "dc01.contoso.com",
+      "IsTimeServer": "true",
+      "Source": "time.windows.com,0x8",
+      "SourceType": "ManualNtp",
+      "W32TimeType": "NTP",
+      "NtpServerEnabled": "true",
+      "NtpClientEnabled": "true",
+      "Udp123Listening": "true",
+      "ServiceStatus": "Running",
+      "Stratum": "2",
+      "LastSuccessfulSyncTime": "2026-06-22T00:01:00Z",
+      "Status": "Success",
+      "Evidence": "Mock PDC emulator uses manual NTP source."
+    },
+    {
+      "ServerName": "dc02.contoso.com",
+      "Fqdn": "dc02.contoso.com",
+      "IsTimeServer": "true",
+      "Source": "dc01.contoso.com",
+      "SourceType": "DomainHierarchy",
+      "W32TimeType": "NT5DS",
+      "NtpServerEnabled": "true",
+      "NtpClientEnabled": "true",
+      "Udp123Listening": "true",
+      "ServiceStatus": "Running",
+      "Stratum": "3",
+      "LastSuccessfulSyncTime": "2026-06-22T00:01:10Z",
+      "Status": "Success",
+      "Evidence": "Mock branch DC follows domain hierarchy."
+    },
+    {
+      "ServerName": "dc03.contoso.com",
+      "Fqdn": "dc03.contoso.com",
+      "IsTimeServer": "false",
+      "Source": "Local CMOS Clock",
+      "SourceType": "LocalClock",
+      "W32TimeType": "NoSync",
+      "NtpServerEnabled": "false",
+      "NtpClientEnabled": "true",
+      "Udp123Listening": "false",
+      "ServiceStatus": "Running",
+      "Stratum": "0",
+      "LastSuccessfulSyncTime": "",
+      "Status": "Success",
+      "Evidence": "Mock RODC has risky local-clock source."
+    }
+  ],
+  "TimeEdges": []
+}

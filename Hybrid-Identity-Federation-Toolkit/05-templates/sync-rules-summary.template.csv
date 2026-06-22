@@ -1,0 +1,2 @@
+RuleId,RuleName,Direction,Precedence,ConnectorName,ConnectedSystem,LinkType,SourceObjectType,TargetObjectType,Enabled,ImmutableTag,TransformSummary,JoinSummary,SourceCollection,Notes
+

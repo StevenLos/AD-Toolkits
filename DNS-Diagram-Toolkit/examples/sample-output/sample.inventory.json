@@ -1,0 +1,283 @@
+{
+  "Metadata": {
+    "Source": "DnsRelationshipCsv",
+    "InputFile": "DNS-Diagram-Toolkit/examples/sample-dns-relationship-details.csv",
+    "GeneratedAtUtc": "2026-06-22T17:21:11.168114+00:00"
+  },
+  "CollectionFiles": [],
+  "DnsServers": [
+    {
+      "Name": "dns01.corp.example.com",
+      "SiteName": "HQ",
+      "SubnetName": "10.10.0.0/24",
+      "SourceCollectionServer": "dns01.corp.example.com"
+    },
+    {
+      "Name": "dns02.corp.example.com",
+      "SiteName": "Branch",
+      "SubnetName": "10.20.0.0/24",
+      "SourceCollectionServer": "dns02.corp.example.com"
+    }
+  ],
+  "ADSites": [
+    {
+      "SiteName": "HQ"
+    },
+    {
+      "SiteName": "Branch"
+    },
+    {
+      "SiteName": "Lab"
+    }
+  ],
+  "ADSubnets": [
+    {
+      "SubnetName": "10.10.0.0/24"
+    },
+    {
+      "SubnetName": "10.20.0.0/24"
+    },
+    {
+      "SubnetName": "10.30.0.0/24"
+    }
+  ],
+  "ADSiteLinks": [],
+  "DomainControllers": [],
+  "Zones": [
+    {
+      "ZoneName": "corp.example.com",
+      "DnsServer": "dns01.corp.example.com",
+      "SiteName": "HQ"
+    },
+    {
+      "ZoneName": "corp.example.com",
+      "DnsServer": "dns02.corp.example.com",
+      "SiteName": "Branch"
+    },
+    {
+      "ZoneName": "partners.example.net",
+      "DnsServer": "dns01.corp.example.com",
+      "SiteName": "HQ"
+    },
+    {
+      "ZoneName": "lab.corp.example.com",
+      "DnsServer": "dns01.corp.example.com",
+      "SiteName": "HQ"
+    }
+  ],
+  "Records": [],
+  "Forwarders": [
+    {
+      "DnsEdgeId": "D04",
+      "DnsServer": "dns02.corp.example.com",
+      "Source": "dns02.corp.example.com",
+      "Target": "8.8.8.8",
+      "ZoneName": "",
+      "Order": "1",
+      "Priority": "",
+      "SiteName": "Branch",
+      "Notes": "Internet recursive forwarder"
+    }
+  ],
+  "ConditionalForwarders": [
+    {
+      "DnsEdgeId": "D03",
+      "DnsServer": "dns01.corp.example.com",
+      "Source": "dns01.corp.example.com",
+      "Target": "partners.example.net",
+      "ZoneName": "partners.example.net",
+      "Order": "1",
+      "Priority": "",
+      "SiteName": "HQ",
+      "Notes": "Conditional forwarder for partner namespace"
+    }
+  ],
+  "Delegations": [
+    {
+      "DnsEdgeId": "D05",
+      "DnsServer": "dns01.corp.example.com",
+      "Source": "corp.example.com",
+      "Target": "lab.corp.example.com",
+      "ZoneName": "lab.corp.example.com",
+      "Order": "",
+      "Priority": "",
+      "SiteName": "HQ",
+      "Notes": "Delegated lab subdomain"
+    }
+  ],
+  "NameServers": [
+    {
+      "DnsEdgeId": "D06",
+      "DnsServer": "dns01.corp.example.com",
+      "Source": "corp.example.com",
+      "Target": "dns01.corp.example.com",
+      "ZoneName": "corp.example.com",
+      "Order": "",
+      "Priority": "",
+      "SiteName": "HQ",
+      "Notes": "Authoritative name server"
+    }
+  ],
+  "RootHints": [
+    {
+      "DnsEdgeId": "D07",
+      "DnsServer": "dns01.corp.example.com",
+      "Source": "dns01.corp.example.com",
+      "Target": "a.root-servers.net",
+      "ZoneName": "",
+      "Order": "",
+      "Priority": "",
+      "SiteName": "HQ",
+      "Notes": "Root hint dependency"
+    }
+  ],
+  "DnsEdges": [
+    {
+      "DnsEdgeId": "D01",
+      "Source": "dns01.corp.example.com",
+      "SourceType": "DnsServer",
+      "Relationship": "HostsZone",
+      "Target": "corp.example.com",
+      "TargetType": "DnsZone",
+      "ZoneName": "corp.example.com",
+      "RecordType": "SOA",
+      "Direction": "SourceToTarget",
+      "SiteName": "HQ",
+      "SubnetName": "10.10.0.0/24",
+      "TargetSiteName": "",
+      "TargetSubnetName": "",
+      "DnsServer": "dns01.corp.example.com",
+      "Order": "",
+      "Priority": "",
+      "Status": "Discovered",
+      "SourceCollectionServer": "dns01.corp.example.com",
+      "Notes": "Primary AD-integrated corporate zone"
+    },
+    {
+      "DnsEdgeId": "D02",
+      "Source": "dns02.corp.example.com",
+      "SourceType": "DnsServer",
+      "Relationship": "HostsZone",
+      "Target": "corp.example.com",
+      "TargetType": "DnsZone",
+      "ZoneName": "corp.example.com",
+      "RecordType": "SOA",
+      "Direction": "SourceToTarget",
+      "SiteName": "Branch",
+      "SubnetName": "10.20.0.0/24",
+      "TargetSiteName": "",
+      "TargetSubnetName": "",
+      "DnsServer": "dns02.corp.example.com",
+      "Order": "",
+      "Priority": "",
+      "Status": "Discovered",
+      "SourceCollectionServer": "dns02.corp.example.com",
+      "Notes": "Replica of corporate zone"
+    },
+    {
+      "DnsEdgeId": "D03",
+      "Source": "dns01.corp.example.com",
+      "SourceType": "DnsServer",
+      "Relationship": "ConditionalForwarder",
+      "Target": "partners.example.net",
+      "TargetType": "DnsZone",
+      "ZoneName": "partners.example.net",
+      "RecordType": "Forwarder",
+      "Direction": "SourceToTarget",
+      "SiteName": "HQ",
+      "SubnetName": "10.10.0.0/24",
+      "TargetSiteName": "",
+      "TargetSubnetName": "",
+      "DnsServer": "dns01.corp.example.com",
+      "Order": "1",
+      "Priority": "",
+      "Status": "Discovered",
+      "SourceCollectionServer": "dns01.corp.example.com",
+      "Notes": "Conditional forwarder for partner namespace"
+    },
+    {
+      "DnsEdgeId": "D04",
+      "Source": "dns02.corp.example.com",
+      "SourceType": "DnsServer",
+      "Relationship": "ForwardsTo",
+      "Target": "8.8.8.8",
+      "TargetType": "ExternalDns",
+      "ZoneName": "",
+      "RecordType": "Forwarder",
+      "Direction": "SourceToTarget",
+      "SiteName": "Branch",
+      "SubnetName": "10.20.0.0/24",
+      "TargetSiteName": "",
+      "TargetSubnetName": "",
+      "DnsServer": "dns02.corp.example.com",
+      "Order": "1",
+      "Priority": "",
+      "Status": "Discovered",
+      "SourceCollectionServer": "dns02.corp.example.com",
+      "Notes": "Internet recursive forwarder"
+    },
+    {
+      "DnsEdgeId": "D05",
+      "Source": "corp.example.com",
+      "SourceType": "DnsZone",
+      "Relationship": "DelegatesTo",
+      "Target": "lab.corp.example.com",
+      "TargetType": "DnsZone",
+      "ZoneName": "lab.corp.example.com",
+      "RecordType": "NS",
+      "Direction": "SourceToTarget",
+      "SiteName": "HQ",
+      "SubnetName": "10.10.0.0/24",
+      "TargetSiteName": "Lab",
+      "TargetSubnetName": "10.30.0.0/24",
+      "DnsServer": "dns01.corp.example.com",
+      "Order": "",
+      "Priority": "",
+      "Status": "Discovered",
+      "SourceCollectionServer": "dns01.corp.example.com",
+      "Notes": "Delegated lab subdomain"
+    },
+    {
+      "DnsEdgeId": "D06",
+      "Source": "corp.example.com",
+      "SourceType": "DnsZone",
+      "Relationship": "AuthoritativeNS",
+      "Target": "dns01.corp.example.com",
+      "TargetType": "NameServer",
+      "ZoneName": "corp.example.com",
+      "RecordType": "NS",
+      "Direction": "SourceToTarget",
+      "SiteName": "HQ",
+      "SubnetName": "10.10.0.0/24",
+      "TargetSiteName": "HQ",
+      "TargetSubnetName": "10.10.0.0/24",
+      "DnsServer": "dns01.corp.example.com",
+      "Order": "",
+      "Priority": "",
+      "Status": "Discovered",
+      "SourceCollectionServer": "dns01.corp.example.com",
+      "Notes": "Authoritative name server"
+    },
+    {
+      "DnsEdgeId": "D07",
+      "Source": "dns01.corp.example.com",
+      "SourceType": "DnsServer",
+      "Relationship": "RootHint",
+      "Target": "a.root-servers.net",
+      "TargetType": "NameServer",
+      "ZoneName": "",
+      "RecordType": "RootHint",
+      "Direction": "SourceToTarget",
+      "SiteName": "HQ",
+      "SubnetName": "10.10.0.0/24",
+      "TargetSiteName": "",
+      "TargetSubnetName": "",
+      "DnsServer": "dns01.corp.example.com",
+      "Order": "",
+      "Priority": "",
+      "Status": "Discovered",
+      "SourceCollectionServer": "dns01.corp.example.com",
+      "Notes": "Root hint dependency"
+    }
+  ]
+}

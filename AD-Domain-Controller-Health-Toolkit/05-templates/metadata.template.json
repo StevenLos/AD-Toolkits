@@ -1,0 +1,16 @@
+{
+  "ProjectName": "AD Domain Controller Health Review",
+  "EnvironmentName": "example",
+  "PreparedBy": "",
+  "PreparedAtUtc": "",
+  "Scope": {
+    "ForestName": "",
+    "DomainNames": [],
+    "IncludedDomainControllers": [],
+    "ExcludedDomainControllers": []
+  },
+  "ReviewNotes": [
+    "Discovery is read-only.",
+    "Time-source fields should come from Time-Server-Toolkit output when available."
+  ]
+}

@@ -1,0 +1,6 @@
+DcHealthEdgeId,Source,SourceType,Relationship,Target,TargetType,DomainName,SiteName,RoleName,Severity,Status,Notes
+DCH001,dc01.contoso.com,DomainController,ServesDomain,contoso.com,ADDomain,contoso.com,HQ,,Info,OK,Current-state relationship
+DCH002,dc01.contoso.com,DomainController,LocatedInSite,HQ,ADSite,contoso.com,HQ,,Info,OK,Site placement
+DCH003,dc01.contoso.com,DomainController,HoldsFsmo,PDCEmulator,FSMORole,contoso.com,HQ,PDCEmulator,Info,OK,Role holder
+DCH004,dc01.contoso.com,DomainController,UsesTimeSource,time.windows.com,TimeSource,contoso.com,HQ,,Info,OK,From Time-Server-Toolkit summary
+DCH005,dc02.contoso.com,DomainController,HasFinding,Port,FindingCategory,contoso.com,Branch-01,,Warning,Review,LDAPS TCP/636 closed from collector perspective

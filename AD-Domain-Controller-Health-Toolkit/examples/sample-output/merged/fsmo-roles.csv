@@ -1,0 +1,6 @@
+"FsmoRoleId","RoleName","ScopeType","ScopeName","RoleHolder","DomainControllerId","DomainName","SiteName","IsGlobalCatalog","IsReadOnly","Enabled","ReachabilityStatus","Ldap389Open","TransferReadinessStatus","Severity","Status","Notes"
+"F001","InfrastructureMaster","Domain","contoso.com","dc02.contoso.com","DC001","contoso.com","Branch-01","true","false","true","Reachable","true","Ready","Info","OK","Open"
+"F002","PDCEmulator","Domain","contoso.com","dc01.contoso.com","DC003","contoso.com","HQ","true","false","true","Reachable","true","Ready","Info","OK","Open"
+"F003","RIDMaster","Domain","contoso.com","dc01.contoso.com","DC003","contoso.com","HQ","true","false","true","Reachable","true","Ready","Info","OK","Open"
+"F004","DomainNamingMaster","Forest","contoso.com","dc01.contoso.com","DC003","contoso.com","HQ","true","false","true","Reachable","true","Ready","Info","OK","Open"
+"F005","SchemaMaster","Forest","contoso.com","dc01.contoso.com","DC003","contoso.com","HQ","true","false","true","Reachable","true","Ready","Info","OK","Open"

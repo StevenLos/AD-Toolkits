@@ -1,0 +1,2 @@
+ConnectorId,ConnectorName,ConnectorType,ServerName,ForestOrTenant,IsEnabled,Partitions,IncludedOUs,ExcludedOUs,ConnectorSpaceObjectCount,LastImport,LastExport,LastSync,SourceCollection,Notes
+

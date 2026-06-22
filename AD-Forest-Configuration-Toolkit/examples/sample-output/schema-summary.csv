@@ -1,0 +1,2 @@
+"ForestName","SchemaNamingContext","ObjectVersion","ProductHint","SchemaMaster","SchemaWhenCreated","SchemaWhenChanged","SchemaUpdateAllowed","SourceCollection","Notes"
+"contoso.com","CN=Schema,CN=Configuration,DC=contoso,DC=com","88","Windows Server 2019 or Windows Server 2022","dc01.contoso.com","01/10/2018 16:30:00","04/12/2025 19:11:00","","mock-contoso.20260622T000000Z.forest-config.collection.json",""

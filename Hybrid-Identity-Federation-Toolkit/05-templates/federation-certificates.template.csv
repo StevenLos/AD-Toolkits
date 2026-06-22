@@ -1,0 +1,2 @@
+CertificateId,ServiceName,CertificateType,IsPrimary,Subject,Thumbprint,NotBefore,NotAfter,DaysUntilExpiration,Risk,SourceCollection,Notes
+

@@ -1,0 +1,44 @@
+{
+  "Metadata": {
+    "Source": "ManualHybridIdentityExport",
+    "GeneratedAtUtc": "YYYY-MM-DDTHH:MM:SSZ",
+    "ComputerName": "SERVER01",
+    "CollectionStatus": "Manual"
+  },
+  "EntraConnect": {
+    "Scheduler": {
+      "StagingModeEnabled": false
+    },
+    "CompanyFeatures": {
+      "PasswordHashSyncEnabled": null,
+      "PassThroughAuthenticationEnabled": null,
+      "PasswordWritebackEnabled": null,
+      "GroupWritebackEnabled": null,
+      "DeviceWritebackEnabled": null,
+      "ExchangeHybridDeployment": null
+    },
+    "Tenant": "",
+    "GlobalSettings": {
+      "SourceAnchor": "",
+      "ImmutableIdAttribute": ""
+    },
+    "Connectors": [],
+    "SyncRules": []
+  },
+  "Adfs": {
+    "FarmInformation": {},
+    "Properties": {},
+    "Certificates": [],
+    "RelyingPartyTrusts": []
+  },
+  "Wap": {
+    "Servers": ""
+  },
+  "PassThroughAuthentication": {
+    "AgentServices": [],
+    "HealthIndicators": []
+  },
+  "CollectionWarnings": [],
+  "CollectionErrors": []
+}
+

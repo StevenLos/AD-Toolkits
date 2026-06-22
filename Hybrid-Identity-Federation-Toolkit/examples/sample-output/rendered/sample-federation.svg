@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="720" viewBox="0 0 1560 720">
+<rect width="1560" height="720" fill="#f8fafc"/>
+<defs>
+<marker id="arrow-SyncImport" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+<marker id="arrow-SyncExport" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/></marker>
+<marker id="arrow-Writeback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker>
+<marker id="arrow-Federates" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/></marker>
+<marker id="arrow-IssuesTokenTo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+<marker id="arrow-AuthenticatesVia" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ca8a04"/></marker>
+<marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+</defs>
+<text x="60" y="52" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#111827" text-anchor="start">
+<tspan x="60" dy="0">Federation and Authentication Topology</tspan>
+</text>
+<text x="60" y="82" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="60" dy="0">AD FS, PTA, Microsoft Entra ID, and relying-party relationships from inventory.</tspan>
+</text>
+<text x="70" y="128" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="70" dy="0">Federation and PTA</tspan>
+</text>
+<rect x="70" y="152" width="360" height="74" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="84" y="178" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="84" dy="0">adfs.contoso.com</tspan>
+</text>
+<text x="84" y="206" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="84" dy="0">AdfsFarm</tspan>
+</text>
+<rect x="70" y="246" width="360" height="74" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5"/>
+<text x="84" y="272" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="84" dy="0">SYNC01</tspan>
+</text>
+<text x="84" y="300" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="84" dy="0">PtaAgent</tspan>
+</text>
+<text x="590" y="128" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="590" dy="0">Microsoft Entra ID</tspan>
+</text>
+<rect x="590" y="152" width="360" height="74" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+<text x="604" y="178" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="604" dy="0">Microsoft Entra ID</tspan>
+</text>
+<text x="604" y="206" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="604" dy="0">CloudIdentity</tspan>
+</text>
+<text x="1110" y="128" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1110" dy="0">Relying parties</tspan>
+</text>
+<rect x="1110" y="152" width="360" height="74" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+<text x="1124" y="178" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1124" dy="0">Finance SaaS</tspan>
+</text>
+<text x="1124" y="206" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1124" dy="0">RelyingParty</tspan>
+</text>
+<rect x="1110" y="246" width="360" height="74" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+<text x="1124" y="272" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1124" dy="0">Microsoft 365</tspan>
+</text>
+<text x="1124" y="300" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1124" dy="0">RelyingParty</tspan>
+</text>
+<rect x="1110" y="340" width="360" height="74" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="1124" y="366" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1124" dy="0">SYNC01</tspan>
+</text>
+<text x="1124" y="394" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1124" dy="0">EntraConnectServer</tspan>
+</text>
+<path d="M 1110.0 377.0 C 1030.0 377.0, 1030.0 189.0, 950.0 189.0" fill="none" stroke="#0284c7" stroke-width="2.3" marker-end="url(#arrow-SyncExport)"/>
+<text x="1030.0" y="275.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#0284c7" text-anchor="middle">
+<tspan x="1030.0" dy="0">HI03</tspan>
+</text>
+<path d="M 430.0 189.0 C 510.0 189.0, 510.0 189.0, 590.0 189.0" fill="none" stroke="#ea580c" stroke-width="2.3" marker-end="url(#arrow-Federates)"/>
+<text x="510.0" y="181.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#ea580c" text-anchor="middle">
+<tspan x="510.0" dy="0">HI04</tspan>
+</text>
+<path d="M 430.0 189.0 C 770.0 189.0, 770.0 283.0, 1110.0 283.0" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow-IssuesTokenTo)"/>
+<text x="770.0" y="228.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">
+<tspan x="770.0" dy="0">HI05</tspan>
+</text>
+<path d="M 430.0 189.0 C 770.0 189.0, 770.0 189.0, 1110.0 189.0" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow-IssuesTokenTo)"/>
+<text x="770.0" y="181.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">
+<tspan x="770.0" dy="0">HI06</tspan>
+</text>
+<path d="M 430.0 283.0 C 510.0 283.0, 510.0 189.0, 590.0 189.0" fill="none" stroke="#ca8a04" stroke-width="2.3" marker-end="url(#arrow-AuthenticatesVia)"/>
+<text x="510.0" y="228.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#ca8a04" text-anchor="middle">
+<tspan x="510.0" dy="0">HI07</tspan>
+</text>
+<text x="60" y="592" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="60" dy="0">Relationship Legend</tspan>
+</text>
+<line x1="60" y1="614" x2="94" y2="614" stroke="#2563eb" stroke-width="3"/>
+<text x="104" y="618" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="104" dy="0">AD import</tspan>
+</text>
+<line x1="60" y1="636" x2="94" y2="636" stroke="#0284c7" stroke-width="3"/>
+<text x="104" y="640" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="104" dy="0">Cloud export</tspan>
+</text>
+<line x1="60" y1="658" x2="94" y2="658" stroke="#7c3aed" stroke-width="3"/>
+<text x="104" y="662" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="104" dy="0">Writeback</tspan>
+</text>
+<line x1="60" y1="680" x2="94" y2="680" stroke="#ea580c" stroke-width="3"/>
+<text x="104" y="684" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="104" dy="0">Federation</tspan>
+</text>
+<line x1="60" y1="702" x2="94" y2="702" stroke="#475569" stroke-width="3"/>
+<text x="104" y="706" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="104" dy="0">Relying party</tspan>
+</text>
+<line x1="60" y1="724" x2="94" y2="724" stroke="#ca8a04" stroke-width="3"/>
+<text x="104" y="728" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="104" dy="0">PTA</tspan>
+</text>
+<text x="1500" y="688" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="end">
+<tspan x="1500" dy="0">Generated by Hybrid Identity Federation Toolkit</tspan>
+</text>
+</svg>

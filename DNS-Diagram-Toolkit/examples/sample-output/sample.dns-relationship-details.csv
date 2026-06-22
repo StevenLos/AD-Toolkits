@@ -1,0 +1,8 @@
+DnsEdgeId,Source,SourceType,Relationship,Target,TargetType,ZoneName,RecordType,Direction,SiteName,SubnetName,TargetSiteName,TargetSubnetName,DnsServer,Order,Priority,Status,SourceCollectionServer,Notes
+D01,dns01.corp.example.com,DnsServer,HostsZone,corp.example.com,DnsZone,corp.example.com,SOA,SourceToTarget,HQ,10.10.0.0/24,,,dns01.corp.example.com,,,Discovered,dns01.corp.example.com,Primary AD-integrated corporate zone
+D02,dns02.corp.example.com,DnsServer,HostsZone,corp.example.com,DnsZone,corp.example.com,SOA,SourceToTarget,Branch,10.20.0.0/24,,,dns02.corp.example.com,,,Discovered,dns02.corp.example.com,Replica of corporate zone
+D03,dns01.corp.example.com,DnsServer,ConditionalForwarder,partners.example.net,DnsZone,partners.example.net,Forwarder,SourceToTarget,HQ,10.10.0.0/24,,,dns01.corp.example.com,1,,Discovered,dns01.corp.example.com,Conditional forwarder for partner namespace
+D04,dns02.corp.example.com,DnsServer,ForwardsTo,8.8.8.8,ExternalDns,,Forwarder,SourceToTarget,Branch,10.20.0.0/24,,,dns02.corp.example.com,1,,Discovered,dns02.corp.example.com,Internet recursive forwarder
+D05,corp.example.com,DnsZone,DelegatesTo,lab.corp.example.com,DnsZone,lab.corp.example.com,NS,SourceToTarget,HQ,10.10.0.0/24,Lab,10.30.0.0/24,dns01.corp.example.com,,,Discovered,dns01.corp.example.com,Delegated lab subdomain
+D06,corp.example.com,DnsZone,AuthoritativeNS,dns01.corp.example.com,NameServer,corp.example.com,NS,SourceToTarget,HQ,10.10.0.0/24,HQ,10.10.0.0/24,dns01.corp.example.com,,,Discovered,dns01.corp.example.com,Authoritative name server
+D07,dns01.corp.example.com,DnsServer,RootHint,a.root-servers.net,NameServer,,RootHint,SourceToTarget,HQ,10.10.0.0/24,,,dns01.corp.example.com,,,Discovered,dns01.corp.example.com,Root hint dependency

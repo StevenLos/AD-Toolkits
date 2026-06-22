@@ -1,0 +1,355 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1850" height="2354" viewBox="0 0 1850 2354">
+<defs>
+<marker id="arrow-ServesDomain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+<marker id="arrow-LocatedInSite" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+<marker id="arrow-HoldsFsmo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker>
+<marker id="arrow-UsesTimeSource" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/></marker>
+<marker id="arrow-HasFinding" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/></marker>
+<marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+</defs>
+<rect x="0" y="0" width="1850" height="2354" fill="#f8fafc"/>
+<text x="56" y="50" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="800" fill="#111827" text-anchor="start">
+<tspan x="56" dy="0">Domain Controller Health - Combined View</tspan>
+</text>
+<text x="56" y="78" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="56" dy="0">DC, site, domain, FSMO, time-source, and finding relationships. Edge IDs map to dc-health-relationship-details.csv.</tspan>
+</text>
+<text x="1370" y="38" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1370" dy="0">Relationship Legend</tspan>
+</text>
+<line x1="1370" y1="60" x2="1404" y2="60" stroke="#2563eb" stroke-width="3"/>
+<text x="1414" y="64" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1414" dy="0">Domain</tspan>
+</text>
+<line x1="1370" y1="82" x2="1404" y2="82" stroke="#0891b2" stroke-width="3"/>
+<text x="1414" y="86" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1414" dy="0">Site</tspan>
+</text>
+<line x1="1370" y1="104" x2="1404" y2="104" stroke="#7c3aed" stroke-width="3"/>
+<text x="1414" y="108" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1414" dy="0">FSMO role</tspan>
+</text>
+<line x1="1370" y1="126" x2="1404" y2="126" stroke="#059669" stroke-width="3"/>
+<text x="1414" y="130" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1414" dy="0">Time source</tspan>
+</text>
+<line x1="1370" y1="148" x2="1404" y2="148" stroke="#dc2626" stroke-width="3"/>
+<text x="1414" y="152" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1414" dy="0">Finding</tspan>
+</text>
+<rect x="56" y="124" width="510" height="256" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="76" y="154" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="76" dy="0">Branch-01</tspan>
+</text>
+<rect x="76" y="176" width="470" height="82" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+<text x="90" y="202" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="90" dy="0">dc02.contoso.com</tspan>
+</text>
+<text x="90" y="240" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="90" dy="0">Review | LDAP: true | Services: OK | FSMO:</tspan>
+<tspan x="90" dy="17">InfrastructureMaster</tspan>
+</text>
+<rect x="76" y="276" width="470" height="82" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="90" y="302" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="90" dy="0">dc03.contoso.com</tspan>
+</text>
+<text x="90" y="340" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="90" dy="0">Critical | LDAP: false | Services: Blocked</tspan>
+</text>
+<rect x="56" y="414" width="510" height="156" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="76" y="444" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="76" dy="0">HQ</tspan>
+</text>
+<rect x="76" y="466" width="470" height="82" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+<text x="90" y="492" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="90" dy="0">dc01.contoso.com</tspan>
+</text>
+<text x="90" y="530" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="90" dy="0">Review | LDAP: true | Services: OK | FSMO:</tspan>
+<tspan x="90" dy="17">...</tspan>
+</text>
+<rect x="1190" y="124" width="540" height="156" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1210" y="154" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1210" dy="0">ADDomain</tspan>
+</text>
+<rect x="1210" y="176" width="500" height="82" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="1224" y="202" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">contoso.com</tspan>
+</text>
+<text x="1224" y="240" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">ServesDomain | Critical | DC health status:</tspan>
+<tspan x="1224" dy="17">Blocked</tspan>
+</text>
+<rect x="1190" y="314" width="540" height="256" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1210" y="344" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1210" dy="0">ADSite</tspan>
+</text>
+<rect x="1210" y="366" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="392" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">Branch-01</tspan>
+</text>
+<text x="1224" y="430" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">LocatedInSite | OK</tspan>
+</text>
+<rect x="1210" y="466" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="492" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">HQ</tspan>
+</text>
+<text x="1224" y="530" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">LocatedInSite | OK</tspan>
+</text>
+<rect x="1190" y="604" width="540" height="556" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1210" y="634" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1210" dy="0">FSMORole</tspan>
+</text>
+<rect x="1210" y="656" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="682" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">DomainNamingMaster</tspan>
+</text>
+<text x="1224" y="720" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HoldsFsmo | OK | contoso.com</tspan>
+</text>
+<rect x="1210" y="756" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="782" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">InfrastructureMaster</tspan>
+</text>
+<text x="1224" y="820" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HoldsFsmo | OK | contoso.com</tspan>
+</text>
+<rect x="1210" y="856" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="882" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">PDCEmulator</tspan>
+</text>
+<text x="1224" y="920" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HoldsFsmo | OK | contoso.com</tspan>
+</text>
+<rect x="1210" y="956" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="982" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">RIDMaster</tspan>
+</text>
+<text x="1224" y="1020" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HoldsFsmo | OK | contoso.com</tspan>
+</text>
+<rect x="1210" y="1056" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="1082" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">SchemaMaster</tspan>
+</text>
+<text x="1224" y="1120" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HoldsFsmo | OK | contoso.com</tspan>
+</text>
+<rect x="1190" y="1194" width="540" height="656" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1210" y="1224" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1210" dy="0">FindingCategory</tspan>
+</text>
+<rect x="1210" y="1246" width="500" height="82" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+<text x="1224" y="1272" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">DecommissionReadiness</tspan>
+</text>
+<text x="1224" y="1310" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HasFinding | Review | Domain controller</tspan>
+<tspan x="1224" dy="17">...</tspan>
+</text>
+<rect x="1210" y="1346" width="500" height="82" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+<text x="1224" y="1372" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">Locator</tspan>
+</text>
+<text x="1224" y="1410" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HasFinding | Review | No DC locator SRV records</tspan>
+<tspan x="1224" dy="17">matched this domain controller.</tspan>
+</text>
+<rect x="1210" y="1446" width="500" height="82" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="1224" y="1472" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">Port</tspan>
+</text>
+<text x="1224" y="1510" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HasFinding | Critical | LDAP TCP/389 status is</tspan>
+<tspan x="1224" dy="17">Timeout.</tspan>
+</text>
+<rect x="1210" y="1546" width="500" height="82" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="1224" y="1572" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">Service</tspan>
+</text>
+<text x="1224" y="1610" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HasFinding | Critical | Netlogon service status</tspan>
+<tspan x="1224" dy="17">is Stopped.</tspan>
+</text>
+<rect x="1210" y="1646" width="500" height="82" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="1224" y="1672" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">Share</tspan>
+</text>
+<text x="1224" y="1710" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HasFinding | Critical | NETLOGON share status is</tspan>
+<tspan x="1224" dy="17">Missing.</tspan>
+</text>
+<rect x="1210" y="1746" width="500" height="82" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+<text x="1224" y="1772" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">Time</tspan>
+</text>
+<text x="1224" y="1810" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">HasFinding | Review | Sibling time inventory</tspan>
+<tspan x="1224" dy="17">reports risky or unknown time source.</tspan>
+</text>
+<rect x="1190" y="1884" width="540" height="356" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1210" y="1914" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1210" dy="0">TimeSource</tspan>
+</text>
+<rect x="1210" y="1936" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="1962" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">dc01.contoso.com</tspan>
+</text>
+<text x="1224" y="2000" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">UsesTimeSource | OK | DomainHierarchy</tspan>
+</text>
+<rect x="1210" y="2036" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="2062" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">Local CMOS Clock</tspan>
+</text>
+<text x="1224" y="2100" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">UsesTimeSource | OK | LocalClock</tspan>
+</text>
+<rect x="1210" y="2136" width="500" height="82" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+<text x="1224" y="2162" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">
+<tspan x="1224" dy="0">time.windows.com,0x8</tspan>
+</text>
+<text x="1224" y="2200" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="1224" dy="0">UsesTimeSource | OK | ManualNtp</tspan>
+</text>
+<path d="M 546 217.0 C 765.12 217.0, 990.88 217.0, 1210 217.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-ServesDomain)"/>
+<rect x="847.0" y="204.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="221.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH001</tspan>
+</text>
+<path d="M 546 217.0 C 765.12 217.0, 990.88 407.0, 1210 407.0" fill="none" stroke="#0891b2" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-LocatedInSite)"/>
+<rect x="847.0" y="299.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#0891b2" stroke-width="1"/>
+<text x="878.0" y="316.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#0891b2" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH002</tspan>
+</text>
+<path d="M 546 217.0 C 765.12 217.0, 990.88 1977.0, 1210 1977.0" fill="none" stroke="#059669" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-UsesTimeSource)"/>
+<rect x="847.0" y="1084.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#059669" stroke-width="1"/>
+<text x="878.0" y="1101.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#059669" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH003</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 217.0, 1210 217.0" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-ServesDomain)"/>
+<rect x="847.0" y="254.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1"/>
+<text x="878.0" y="271.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH004</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 407.0, 1210 407.0" fill="none" stroke="#0891b2" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-LocatedInSite)"/>
+<rect x="847.0" y="349.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#0891b2" stroke-width="1"/>
+<text x="878.0" y="366.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#0891b2" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH005</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 2077.0, 1210 2077.0" fill="none" stroke="#059669" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-UsesTimeSource)"/>
+<rect x="847.0" y="1184.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#059669" stroke-width="1"/>
+<text x="878.0" y="1201.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#059669" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH006</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 217.0, 1210 217.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-ServesDomain)"/>
+<rect x="847.0" y="349.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="366.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH007</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 507.0, 1210 507.0" fill="none" stroke="#0891b2" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-LocatedInSite)"/>
+<rect x="847.0" y="494.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#0891b2" stroke-width="1"/>
+<text x="878.0" y="511.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#0891b2" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH008</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 2177.0, 1210 2177.0" fill="none" stroke="#059669" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-UsesTimeSource)"/>
+<rect x="847.0" y="1329.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#059669" stroke-width="1"/>
+<text x="878.0" y="1346.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#059669" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH009</tspan>
+</text>
+<path d="M 546 217.0 C 765.12 217.0, 990.88 797.0, 1210 797.0" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HoldsFsmo)"/>
+<rect x="847.0" y="494.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1"/>
+<text x="878.0" y="511.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#7c3aed" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH010</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 897.0, 1210 897.0" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HoldsFsmo)"/>
+<rect x="847.0" y="689.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1"/>
+<text x="878.0" y="706.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#7c3aed" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH011</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 997.0, 1210 997.0" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HoldsFsmo)"/>
+<rect x="847.0" y="739.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1"/>
+<text x="878.0" y="756.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#7c3aed" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH012</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 697.0, 1210 697.0" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HoldsFsmo)"/>
+<rect x="847.0" y="589.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1"/>
+<text x="878.0" y="606.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#7c3aed" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH013</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 1097.0, 1210 1097.0" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HoldsFsmo)"/>
+<rect x="847.0" y="789.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1"/>
+<text x="878.0" y="806.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#7c3aed" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH014</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1487.0, 1210 1487.0" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="889.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1"/>
+<text x="878.0" y="906.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH015</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1587.0, 1210 1587.0" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="939.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1"/>
+<text x="878.0" y="956.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH016</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1687.0, 1210 1687.0" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="989.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1"/>
+<text x="878.0" y="1006.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH017</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1687.0, 1210 1687.0" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="1001.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1"/>
+<text x="878.0" y="1018.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH018</tspan>
+</text>
+<path d="M 546 217.0 C 765.12 217.0, 990.88 1287.0, 1210 1287.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="739.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="756.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH019</tspan>
+</text>
+<path d="M 546 217.0 C 765.12 217.0, 990.88 1487.0, 1210 1487.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="839.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="856.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH020</tspan>
+</text>
+<path d="M 546 217.0 C 765.12 217.0, 990.88 1487.0, 1210 1487.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="851.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="868.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH021</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1387.0, 1210 1387.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="839.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="856.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH022</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1487.0, 1210 1487.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="901.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="918.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH023</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1487.0, 1210 1487.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="913.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="930.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH024</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1587.0, 1210 1587.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="951.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="968.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH025</tspan>
+</text>
+<path d="M 546 317.0 C 765.12 317.0, 990.88 1787.0, 1210 1787.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="1039.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="1056.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH026</tspan>
+</text>
+<path d="M 546 507.0 C 765.12 507.0, 990.88 1287.0, 1210 1287.0" fill="none" stroke="#d97706" stroke-width="2.2" stroke-opacity="0.82" marker-end="url(#arrow-HasFinding)"/>
+<rect x="847.0" y="884.0" width="62" height="22" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+<text x="878.0" y="901.0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#d97706" text-anchor="middle">
+<tspan x="878.0" dy="0">DCH027</tspan>
+</text>
+<text x="56" y="2326" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748b" text-anchor="start">
+<tspan x="56" dy="0">27 domain-controller health relationships rendered.</tspan>
+</text>
+</svg>

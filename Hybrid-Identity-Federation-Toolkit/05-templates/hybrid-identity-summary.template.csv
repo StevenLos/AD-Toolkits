@@ -1,0 +1,2 @@
+ComponentId,ComponentType,Name,ServerName,Role,SyncMode,PasswordHashSync,PassThroughAuthentication,Federation,StagingMode,SourceAnchor,ImmutableIdAttribute,WritebackFeatures,Tenant,CollectionStatus,Evidence,SourceCollection,Notes
+

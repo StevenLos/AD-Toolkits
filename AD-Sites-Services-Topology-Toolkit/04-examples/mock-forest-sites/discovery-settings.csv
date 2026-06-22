@@ -1,0 +1,14 @@
+Setting,Value,Notes
+Server,,Mock example does not query live AD
+ForestName,corp.example.com,Mock forest name
+ObjectMode,Site,MVP renders AD sites as diagram objects
+LinkExpansionMode,Pairwise,MVP expands multi-site site links into site pairs
+EnvironmentDefault,Production,Default environment value for generated diagram objects
+ProviderDefault,On-Premises,Default provider value for generated diagram objects
+ZoneDefault,Directory Services,Default zone value for generated diagram objects
+PortProfile,default-ad-ds,Default generated port profile name
+CollectIpTransport,true,Mock example includes transport-level bridge-all-site-links settings
+IncludeReplicationConnections,true,Mock example includes configured replication connection objects
+IncludeReplicationMetadata,true,Mock example includes observed replication health and topology evidence
+ResolveDns,false,Mock example uses static data
+Anonymize,false,Mock data is already non-sensitive
