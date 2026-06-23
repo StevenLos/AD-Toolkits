@@ -27,6 +27,8 @@ The raw evidence is captured in JSON and CSV so review can override the classifi
 
 ## Current-State Quick Start
 
+Minimum recommended scope is all domain controllers in each AD domain. Where appropriate, add representative member servers, especially critical systems, manually configured NTP clients, virtual machines where hypervisor time sync may matter, and any server suspected of serving time.
+
 Collect one or more servers:
 
 ```powershell
@@ -94,3 +96,9 @@ The combined diagram uses edge labels such as `T01`; those map back to `TimeEdge
 - Python 3 for SVG rendering.
 - Microsoft Edge, Chrome, or Chromium for PNG export. SVG output does not require a browser.
 
+## Documentation
+
+| File | Purpose |
+| --- | --- |
+| `00-docs/RUNBOOK.md` | Operating workflow for lab, collection, merge, review, rendering, handoff, and troubleshooting. |
+| `00-docs/data-dictionary.md` | CSV field definitions for relationship and server summary outputs. |

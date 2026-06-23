@@ -339,7 +339,7 @@ foreach ($collectionItem in $collections) {
         Stratum = ConvertTo-Text -Value (Get-PropertyValue -InputObject $classification -Path @("Stratum"))
         LastSuccessfulSyncTime = ConvertTo-Text -Value (Get-PropertyValue -InputObject $classification -Path @("LastSuccessfulSyncTime"))
         Offset = ConvertTo-Text -Value (Get-PropertyValue -InputObject $classification -Path @("Offset"))
-        CollectionStatus = ConvertTo-Text -Value (Get-PropertyValue -InputObject $collection -Path @("Metadata", "CollectionStatus"))
+        Status = ConvertTo-Text -Value (Get-PropertyValue -InputObject $collection -Path @("Metadata", "CollectionStatus"))
         Evidence = $evidence
         Warnings = $warningText
         CollectionFile = $collectionItem.File
