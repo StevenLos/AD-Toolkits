@@ -10,6 +10,15 @@ Run discovery from a domain-joined Windows host with the Active Directory module
   -OutputPath .\input\discovery-collections
 ```
 
+The collector writes both a machine-readable JSON file and a human-readable CSV summary:
+
+```text
+<scope>.<timestamp>.dc-health.collection.json
+<scope>.<timestamp>.dc-health.summary.csv
+```
+
+Use `-NoSummaryCsv` only when the raw JSON collection is the only desired artifact.
+
 Useful collection switches:
 
 | Switch | Purpose |
@@ -21,6 +30,7 @@ Useful collection switches:
 | `-SkipShareChecks` | Skip `\\DC\SYSVOL` and `\\DC\NETLOGON` presence checks. |
 | `-SkipPortChecks` | Skip LDAP/LDAPS/GC TCP checks and FSMO holder LDAP reachability probes. |
 | `-SkipSrvRecordSummary` | Skip `Resolve-DnsName` SRV lookups. |
+| `-NoSummaryCsv` | Suppress the companion discovery summary CSV. |
 
 ## 2. Merge
 

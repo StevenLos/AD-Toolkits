@@ -4,7 +4,7 @@ This toolkit collects read-only Active Directory domain controller health and ro
 
 It follows the sibling `DNS-Diagram-Toolkit` and `Time-Server-Toolkit` workflow:
 
-1. `01-discovery`: collect one self-contained `*.dc-health.collection.json` file.
+1. `01-discovery`: collect one self-contained `*.dc-health.collection.json` file plus a human-readable `*.dc-health.summary.csv`.
 2. `02-aggregation`: merge collection files into `inventory.json` plus review CSVs.
 3. `03-render-from-discovery`: render current-state SVG/PNG diagrams from inventory.
 4. `04-render-from-csv`: render diagrams from an editable relationship CSV.
@@ -25,6 +25,14 @@ Run live discovery from a Windows host with the Active Directory PowerShell modu
 .\01-discovery\Export-ADDomainControllerHealthCollection.ps1 `
   -Server dc01.contoso.com `
   -OutputPath .\input\discovery-collections
+```
+
+Discovery writes both:
+
+```text
+input/discovery-collections/
+  <scope>.<timestamp>.dc-health.collection.json
+  <scope>.<timestamp>.dc-health.summary.csv
 ```
 
 Merge collections. If `..\Time-Server-Toolkit\output\01-merged-inventory\inventory.json` exists, it is consumed automatically:

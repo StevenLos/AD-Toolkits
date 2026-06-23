@@ -4,10 +4,11 @@
 Collects read-only Active Directory domain controller health and role evidence.
 
 .DESCRIPTION
-Writes one self-contained *.collection.json file for the queried forest/domain
-scope. The collector reads AD metadata, selected service state, SYSVOL and
-NETLOGON share presence, DC locator SRV records, FSMO role ownership, and
-collector-perspective LDAP/LDAPS/GC TCP availability.
+Writes one self-contained *.collection.json file and one human-readable
+*.summary.csv file for the queried forest/domain scope. The collector reads AD
+metadata, selected service state, SYSVOL and NETLOGON share presence, DC locator
+SRV records, FSMO role ownership, and collector-perspective LDAP/LDAPS/GC TCP
+availability.
 
 No configuration changes are made.
 #>
@@ -46,6 +47,9 @@ param(
 
     [Parameter()]
     [int]$PortTimeoutMilliseconds = 1500,
+
+    [Parameter()]
+    [switch]$NoSummaryCsv,
 
     [Parameter()]
     [switch]$NoClobber
@@ -170,6 +174,28 @@ function ConvertTo-StringArray {
     }
 
     return $items
+}
+
+function ConvertTo-CsvText {
+    param([Parameter()][object]$Value)
+
+    if ($null -eq $Value) {
+        return ""
+    }
+
+    if ($Value -is [string]) {
+        return $Value.Trim()
+    }
+
+    if ($Value -is [bool]) {
+        return $Value.ToString().ToLowerInvariant()
+    }
+
+    if ($Value -is [System.Collections.IEnumerable]) {
+        return ((ConvertTo-StringArray -Value $Value) -join "; ")
+    }
+
+    return ([string]$Value).Trim()
 }
 
 function Get-NormalizedName {
@@ -372,7 +398,7 @@ function Get-ServiceStatesSafe {
 
         foreach ($serviceName in $serviceNames) {
             $service = @($services | Where-Object { $_.Name -ieq $serviceName } | Select-Object -First 1)
-            if ($service.Count -gt 0) {
+            if (@($service).Count -gt 0) {
                 $item = $service[0]
                 $rows += [pscustomobject]@{
                     DcHostName = $ComputerName
@@ -448,7 +474,7 @@ function Resolve-SrvRecordSummary {
 
         try {
             $records = @(Resolve-DnsName -Name $queryName -Type SRV -ErrorAction Stop)
-            if ($records.Count -eq 0) {
+            if (@($records).Count -eq 0) {
                 $rows += [pscustomobject]@{
                     QueryName = $queryName
                     Service = $query.Service
@@ -511,7 +537,7 @@ function Test-RequestedDomainController {
         [Parameter(Mandatory = $true)][string[]]$RequestedNames
     )
 
-    if ($RequestedNames.Count -eq 0) {
+    if (@($RequestedNames).Count -eq 0) {
         return $true
     }
 
@@ -534,6 +560,209 @@ function Test-RequestedDomainController {
     }
 
     return $false
+}
+
+function Get-CollectionMessageText {
+    param([Parameter(Mandatory = $true)][object]$Collection)
+
+    $messages = @()
+    foreach ($warning in @($Collection.CollectionWarnings)) {
+        $step = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $warning -Names @("Step"))
+        $message = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $warning -Names @("Message"))
+        if ($step -or $message) {
+            $messages += ("WARNING {0}: {1}" -f $step, $message).Trim(": ")
+        }
+    }
+    foreach ($errorItem in @($Collection.CollectionErrors)) {
+        $step = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $errorItem -Names @("Step"))
+        $message = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $errorItem -Names @("Message"))
+        if ($step -or $message) {
+            $messages += ("ERROR {0}: {1}" -f $step, $message).Trim(": ")
+        }
+    }
+
+    return ($messages -join "; ")
+}
+
+function Get-DcMatchedRows {
+    param(
+        [Parameter(Mandatory = $true)][AllowEmptyCollection()][object[]]$Rows,
+        [Parameter(Mandatory = $true)][string]$HostName
+    )
+
+    $hostKey = Get-NormalizedName -Value $HostName
+    return @($Rows | Where-Object {
+        $rowHost = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $_ -Names @("DcHostName", "HostName", "ComputerName"))
+        (Get-NormalizedName -Value $rowHost) -eq $hostKey
+    })
+}
+
+function Get-DcServiceSummary {
+    param(
+        [Parameter(Mandatory = $true)][object]$Collection,
+        [Parameter(Mandatory = $true)][string]$HostName
+    )
+
+    $rows = Get-DcMatchedRows -Rows @($Collection.Services) -HostName $HostName
+    if (@($rows).Count -eq 0) {
+        return "NotCollected"
+    }
+
+    return (($rows | Sort-Object ServiceName | ForEach-Object {
+        "{0}={1}" -f (ConvertTo-CsvText -Value $_.ServiceName), (ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $_ -Names @("Status", "State")))
+    }) -join "; ")
+}
+
+function Get-DcShareStatus {
+    param(
+        [Parameter(Mandatory = $true)][object]$Collection,
+        [Parameter(Mandatory = $true)][string]$HostName,
+        [Parameter(Mandatory = $true)][string]$ShareName
+    )
+
+    $rows = @(Get-DcMatchedRows -Rows @($Collection.Shares) -HostName $HostName | Where-Object {
+        (ConvertTo-CsvText -Value $_.ShareName) -ieq $ShareName
+    })
+    if (@($rows).Count -eq 0) {
+        return "NotCollected"
+    }
+
+    return ConvertTo-CsvText -Value $rows[0].Status
+}
+
+function Get-DcPortSummary {
+    param(
+        [Parameter(Mandatory = $true)][object]$Collection,
+        [Parameter(Mandatory = $true)][string]$HostName
+    )
+
+    $rows = Get-DcMatchedRows -Rows @($Collection.PortChecks) -HostName $HostName
+    if (@($rows).Count -eq 0) {
+        return "NotCollected"
+    }
+
+    return (($rows | Sort-Object Port | ForEach-Object {
+        "{0}/{1}={2}" -f (ConvertTo-CsvText -Value $_.PortName), (ConvertTo-CsvText -Value $_.Port), (ConvertTo-CsvText -Value $_.Status)
+    }) -join "; ")
+}
+
+function Get-DcLocatorRecordCount {
+    param(
+        [Parameter(Mandatory = $true)][object]$Collection,
+        [Parameter(Mandatory = $true)][string]$HostName
+    )
+
+    $hostKey = Get-NormalizedName -Value $HostName
+    return @($Collection.SrvRecords | Where-Object {
+        $target = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $_ -Names @("NameTarget", "TargetHost"))
+        (Get-NormalizedName -Value $target) -eq $hostKey
+    }).Count
+}
+
+function Get-DcFsmoRoles {
+    param(
+        [Parameter(Mandatory = $true)][object]$Collection,
+        [Parameter(Mandatory = $true)][object]$DomainController
+    )
+
+    $hostName = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $DomainController -Names @("HostName", "DNSHostName", "Name"))
+    $hostKeys = @(Get-NameKeys -Name $hostName)
+    $roles = @()
+    foreach ($role in @($Collection.FSMORoles)) {
+        $holder = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $role -Names @("RoleHolder"))
+        foreach ($key in (Get-NameKeys -Name $holder)) {
+            if ($hostKeys -contains $key) {
+                $roles += ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $role -Names @("RoleName"))
+                break
+            }
+        }
+    }
+
+    if (@($roles).Count -eq 0) {
+        $roles = ConvertTo-StringArray -Value (Get-ObjectPropertyValue -InputObject $DomainController -Names @("OperationMasterRoles"))
+    }
+
+    return (($roles | Where-Object { $_ } | Select-Object -Unique) -join "; ")
+}
+
+function New-DiscoverySummaryRows {
+    param(
+        [Parameter(Mandatory = $true)][object]$Collection,
+        [Parameter(Mandatory = $true)][string]$CollectionFile
+    )
+
+    $messages = Get-CollectionMessageText -Collection $Collection
+    $warningCount = @($Collection.CollectionWarnings).Count
+    $errorCount = @($Collection.CollectionErrors).Count
+    $domainNames = ConvertTo-CsvText -Value $Collection.Metadata.ResolvedDomainNames
+    if (-not $domainNames) {
+        $domainNames = ConvertTo-CsvText -Value $Collection.Metadata.DomainName
+    }
+
+    $dcs = @($Collection.DomainControllers)
+    if (@($dcs).Count -eq 0) {
+        return @([pscustomobject][ordered]@{
+            CollectionStatus = ConvertTo-CsvText -Value $Collection.Metadata.CollectionStatus
+            ForestName = ConvertTo-CsvText -Value $Collection.Metadata.ResolvedForestName
+            DomainNames = $domainNames
+            HostName = ""
+            Name = ""
+            SiteName = ""
+            IsGlobalCatalog = ""
+            IsReadOnly = ""
+            Enabled = ""
+            OperatingSystem = ""
+            OperatingSystemVersion = ""
+            BuildNumber = ""
+            IPv4Addresses = ""
+            IPv6Addresses = ""
+            OperationMasterRoles = ""
+            FsmoRolesHeld = ""
+            SysvolShareStatus = ""
+            NetlogonShareStatus = ""
+            ServiceSummary = ""
+            PortSummary = ""
+            LocatorRecordCount = 0
+            WarningCount = $warningCount
+            ErrorCount = $errorCount
+            Messages = $messages
+            CollectionFile = $CollectionFile
+        })
+    }
+
+    $rows = @()
+    foreach ($dc in $dcs) {
+        $hostName = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("HostName", "DNSHostName", "Name"))
+        $rows += [pscustomobject][ordered]@{
+            CollectionStatus = ConvertTo-CsvText -Value $Collection.Metadata.CollectionStatus
+            ForestName = ConvertTo-CsvText -Value $Collection.Metadata.ResolvedForestName
+            DomainNames = $domainNames
+            HostName = $hostName
+            Name = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("Name"))
+            SiteName = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("SiteName", "Site"))
+            IsGlobalCatalog = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("IsGlobalCatalog"))
+            IsReadOnly = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("IsReadOnly"))
+            Enabled = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("Enabled"))
+            OperatingSystem = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("OperatingSystem"))
+            OperatingSystemVersion = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("OperatingSystemVersion"))
+            BuildNumber = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("BuildNumber"))
+            IPv4Addresses = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("IPv4Addresses", "IPv4Address"))
+            IPv6Addresses = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("IPv6Addresses", "IPv6Address"))
+            OperationMasterRoles = ConvertTo-CsvText -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("OperationMasterRoles"))
+            FsmoRolesHeld = Get-DcFsmoRoles -Collection $Collection -DomainController $dc
+            SysvolShareStatus = Get-DcShareStatus -Collection $Collection -HostName $hostName -ShareName "SYSVOL"
+            NetlogonShareStatus = Get-DcShareStatus -Collection $Collection -HostName $hostName -ShareName "NETLOGON"
+            ServiceSummary = Get-DcServiceSummary -Collection $Collection -HostName $hostName
+            PortSummary = Get-DcPortSummary -Collection $Collection -HostName $hostName
+            LocatorRecordCount = Get-DcLocatorRecordCount -Collection $Collection -HostName $hostName
+            WarningCount = $warningCount
+            ErrorCount = $errorCount
+            Messages = $messages
+            CollectionFile = $CollectionFile
+        }
+    }
+
+    return $rows
 }
 
 $collectionStartedUtc = [DateTime]::UtcNow
@@ -612,7 +841,7 @@ try {
     }
 
     $domainNamesToQuery = @()
-    if ($DomainName -and $DomainName.Count -gt 0) {
+    if ($DomainName -and @($DomainName).Count -gt 0) {
         $domainNamesToQuery = @($DomainName)
     }
     elseif ($forest) {
@@ -700,10 +929,10 @@ try {
 
             $resolved = Resolve-HostAddresses -HostName $hostName
             $ipv4 = ConvertTo-StringArray -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("IPv4Address"))
-            if ($ipv4.Count -eq 0) {
+            if (@($ipv4).Count -eq 0) {
                 $ipv4 = ConvertTo-StringArray -Value (Get-ObjectPropertyValue -InputObject $computerObject -Names @("IPv4Address"))
             }
-            if ($ipv4.Count -eq 0 -and $resolved.IPv4Addresses.Count -gt 0) {
+            if (@($ipv4).Count -eq 0 -and @($resolved.IPv4Addresses).Count -gt 0) {
                 $ipv4 = $resolved.IPv4Addresses
             }
 
@@ -740,7 +969,7 @@ try {
     if ($DomainController) {
         $requestedDcNames = @($DomainController | Where-Object { $_ })
     }
-    if ($requestedDcNames.Count -gt 0) {
+    if (@($requestedDcNames).Count -gt 0) {
         $collection.DomainControllers = @($collection.DomainControllers | Where-Object {
             Test-RequestedDomainController -DomainControllerObject $_ -RequestedNames $requestedDcNames
         })
@@ -950,10 +1179,10 @@ catch {
 
 $collectionCompletedUtc = [DateTime]::UtcNow
 $collection.Metadata.CollectionCompletedUtc = $collectionCompletedUtc.ToString("o")
-if ($collectionErrors.Count -gt 0) {
+if (@($collectionErrors).Count -gt 0) {
     $collection.Metadata.CollectionStatus = "Failed"
 }
-elseif ($collectionWarnings.Count -gt 0) {
+elseif (@($collectionWarnings).Count -gt 0) {
     $collection.Metadata.CollectionStatus = "Partial"
 }
 else {
@@ -976,15 +1205,25 @@ if (-not $scopeName) {
 }
 $safeScope = ConvertTo-SafeFileName -Value $scopeName
 $outputFile = Join-Path $outputDirectory.FullName "$safeScope.$timestamp.dc-health.collection.json"
+$summaryCsvFile = Join-Path $outputDirectory.FullName "$safeScope.$timestamp.dc-health.summary.csv"
 if ($NoClobber -and (Test-Path -LiteralPath $outputFile)) {
     throw "Collection file already exists: $outputFile"
+}
+if ($NoClobber -and -not $NoSummaryCsv -and (Test-Path -LiteralPath $summaryCsvFile)) {
+    throw "Summary CSV file already exists: $summaryCsvFile"
 }
 
 $collectionJson = ([pscustomobject]$collection) | ConvertTo-Json -Depth 50
 Set-Content -LiteralPath $outputFile -Value $collectionJson -Encoding UTF8
 
+if (-not $NoSummaryCsv) {
+    $summaryRows = @(New-DiscoverySummaryRows -Collection ([pscustomobject]$collection) -CollectionFile $outputFile)
+    $summaryRows | Export-Csv -LiteralPath $summaryCsvFile -NoTypeInformation -Encoding UTF8
+}
+
 [pscustomobject]@{
     CollectionFile = $outputFile
+    SummaryCsv = if (-not $NoSummaryCsv) { $summaryCsvFile } else { $null }
     ForestName = $collection.Metadata.ResolvedForestName
     DomainNames = @($collection.Metadata.ResolvedDomainNames | Select-Object -Unique)
     Status = $collection.Metadata.CollectionStatus

@@ -15,6 +15,13 @@
 | `dc-findings.csv` | Warning and critical findings with recommendations and evidence. |
 | `dc-health-relationship-details.csv` | Diagram relationship CSV used by the renderer and editable future-state workflow. |
 
+## Discovery Outputs
+
+| File | Purpose |
+| --- | --- |
+| `*.dc-health.collection.json` | Full raw collection, including nested AD, service, share, port, FSMO, SRV, warning, and error evidence. Use this for aggregation. |
+| `*.dc-health.summary.csv` | Human-readable one-row-per-DC discovery summary emitted beside the JSON. If discovery fails before DC enumeration, it still contains one failure row with collection status and error messages. |
+
 ## Severity and Status
 
 | Severity | Meaning |
