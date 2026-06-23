@@ -263,7 +263,7 @@ function ConvertTo-StableReplicationKey {
     return (($hashBytes | ForEach-Object { $_.ToString("x2") }) -join "").Substring(0, 12).ToUpperInvariant()
 }
 
-function Get-ReplicationStatus {
+function Test-ReplicationHasFailure {
     param(
         [Parameter()][object]$ResultCode,
         [Parameter()][object]$FailureCount
@@ -273,9 +273,21 @@ function Get-ReplicationStatus {
     $failureText = ConvertTo-PlainValue -Value $FailureCount
     $failureNumber = 0
     if ($failureText -and [int]::TryParse([string]$failureText, [ref]$failureNumber) -and $failureNumber -gt 0) {
-        return "Failing"
+        return $true
     }
     if ($codeText -and [string]$codeText -ne "0" -and [string]$codeText -ne "Success") {
+        return $true
+    }
+    return $false
+}
+
+function Get-ReplicationStatus {
+    param(
+        [Parameter()][object]$ResultCode,
+        [Parameter()][object]$FailureCount
+    )
+
+    if (Test-ReplicationHasFailure -ResultCode $ResultCode -FailureCount $FailureCount) {
         return "Failing"
     }
     return "Healthy"
@@ -707,25 +719,36 @@ try {
                 }
                 $source = Resolve-DomainControllerContext -Identity (ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("Partner", "SourceServer", "Source")))
                 $namingContext = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("Partition", "NamingContext", "PartitionName"))
+                $direction = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("PartnerType", "Direction"))
                 $resultCode = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("LastReplicationResult", "ResultCode"))
                 $failureCount = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("ConsecutiveReplicationFailures", "ConsecutiveFailureCount"))
+                $lastSuccess = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("LastReplicationSuccess", "LastSuccess"))
+                $lastFailure = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("LastFailure", "LastReplicationFailure"))
+                $partnerAddress = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("PartnerAddress"))
+                $status = Get-ReplicationStatus -ResultCode $resultCode -FailureCount $failureCount
+                if ($status -eq "Failing" -and -not $lastFailure) {
+                    $lastFailure = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("LastReplicationAttempt"))
+                }
+                elseif ($status -ne "Failing") {
+                    $lastFailure = ""
+                }
 
                 $collection.ReplicationPartnerMetadata += [pscustomobject]@{
-                    MetadataId = "RPMETA-" + (ConvertTo-StableReplicationKey -Parts @($source.HostName, $destination.HostName, $namingContext, "partner"))
-                    Direction = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("PartnerType", "Direction"))
+                    MetadataId = "RPMETA-" + (ConvertTo-StableReplicationKey -Parts @($source.HostName, $destination.HostName, $namingContext, $direction, $partnerAddress, "partner"))
+                    Direction = $direction
                     SourceServer = $source.HostName
                     SourceSite = $source.SiteName
                     DestinationServer = $destination.HostName
                     DestinationSite = $destination.SiteName
                     NamingContext = $namingContext
-                    LastSuccess = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("LastReplicationSuccess", "LastSuccess"))
-                    LastFailure = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("LastReplicationAttempt", "LastFailure", "LastReplicationFailure"))
+                    LastSuccess = $lastSuccess
+                    LastFailure = $lastFailure
                     ConsecutiveFailureCount = $failureCount
                     ResultCode = $resultCode
                     ResultMessage = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("LastReplicationResultMessage", "ResultMessage", "LastErrorMessage"))
                     Transport = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("TransportType", "Transport"))
-                    PartnerAddress = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $partner -Names @("PartnerAddress"))
-                    Status = Get-ReplicationStatus -ResultCode $resultCode -FailureCount $failureCount
+                    PartnerAddress = $partnerAddress
+                    Status = $status
                     Notes = "Observed replication partner metadata. This is evidence from replication state, not a configured connection object."
                 }
             }
@@ -892,6 +915,14 @@ try {
         $queueRowsForDc = @($collection.ReplicationQueue | Where-Object { $_.SourceServer -eq $hostName -or $_.DestinationServer -eq $hostName })
         $lastSuccessValues = @($collection.ReplicationPartnerMetadata | Where-Object { $_.SourceServer -eq $hostName -or $_.DestinationServer -eq $hostName } | ForEach-Object { $_.LastSuccess } | Where-Object { $_ } | Sort-Object -Descending)
         $lastFailureValues = @($collection.ReplicationTopologyEdges | Where-Object { ($_.SourceServer -eq $hostName -or $_.DestinationServer -eq $hostName) -and $_.LastFailure } | ForEach-Object { $_.LastFailure } | Sort-Object -Descending)
+        $lastSuccess = ""
+        if ($lastSuccessValues.Count -gt 0) {
+            $lastSuccess = [string]$lastSuccessValues[0]
+        }
+        $lastFailure = ""
+        if ($lastFailureValues.Count -gt 0) {
+            $lastFailure = [string]$lastFailureValues[0]
+        }
         $status = if ($failureRowsForDc.Count -gt 0) { "Failing" } elseif ($queueRowsForDc.Count -gt 0) { "Queued" } elseif ($serverRows.Count -gt 0) { "Healthy" } else { "NoData" }
 
         $collection.ReplicationHealthSummary += [pscustomobject]@{
@@ -901,8 +932,8 @@ try {
             ConfiguredConnectionCount = @($collection.ReplicationConnections | Where-Object { $_.SourceServer -eq $hostName -or $_.DestinationServer -eq $hostName }).Count
             FailureCount = $failureRowsForDc.Count
             QueueOperationCount = $queueRowsForDc.Count
-            LastSuccess = @($lastSuccessValues | Select-Object -First 1)
-            LastFailure = @($lastFailureValues | Select-Object -First 1)
+            LastSuccess = $lastSuccess
+            LastFailure = $lastFailure
             Status = $status
             Notes = "Read-only summary from configured connection objects and observed replication metadata where available."
         }
