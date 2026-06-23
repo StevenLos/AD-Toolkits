@@ -19,6 +19,9 @@ param(
     [string]$ForestName,
 
     [Parameter()]
+    [switch]$FullInventory,
+
+    [Parameter()]
     [switch]$IncludeReplicationConnections,
 
     [Parameter()]
@@ -280,7 +283,9 @@ function Get-ReplicationStatus {
 
 function Write-CsvRows {
     param(
-        [Parameter(Mandatory = $true)][object[]]$Rows,
+        [Parameter(Mandatory = $true)]
+        [AllowEmptyCollection()]
+        [object[]]$Rows,
         [Parameter(Mandatory = $true)][string[]]$Columns,
         [Parameter(Mandatory = $true)][string]$Path,
         [switch]$Force
@@ -391,6 +396,11 @@ if ($Anonymize) {
     throw "The -Anonymize workflow is not implemented yet. Run without -Anonymize or anonymize the generated collection before sharing it."
 }
 
+$effectiveIncludeReplicationConnections = [bool]($FullInventory -or $IncludeReplicationConnections)
+$effectiveIncludeReplicationMetadata = [bool]($FullInventory -or $IncludeReplicationMetadata)
+$effectiveResolveDns = [bool]($FullInventory -or $ResolveDns)
+$effectiveIncludeSrvRecordSummary = [bool]($FullInventory -or $IncludeSrvRecordSummary)
+
 if ($CollectIpTransport) {
     $collectionWarnings += [pscustomobject]@{
         Step = "CollectIpTransport"
@@ -414,6 +424,11 @@ $collection = [ordered]@{
         Server = $Server
         RequestedForestName = $ForestName
         CredentialUsed = [bool]$Credential
+        FullInventoryRequested = [bool]$FullInventory
+        IncludeReplicationConnections = $effectiveIncludeReplicationConnections
+        IncludeReplicationMetadata = $effectiveIncludeReplicationMetadata
+        ResolveDns = $effectiveResolveDns
+        IncludeSrvRecordSummary = $effectiveIncludeSrvRecordSummary
         TimestampUtc = $collectionStartedUtc.ToString("o")
         PowerShellVersion = $PSVersionTable.PSVersion.ToString()
         ActiveDirectoryModuleVersion = $null
@@ -557,7 +572,7 @@ try {
             $hostName = ConvertTo-PlainValue -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("HostName", "DNSHostName", "Name"))
             $ipv4 = ConvertTo-StringArray -Value (Get-ObjectPropertyValue -InputObject $dc -Names @("IPv4Address"))
             $ipv6 = @()
-            if ($ResolveDns -and $hostName) {
+            if ($effectiveResolveDns -and $hostName) {
                 $resolved = Resolve-HostAddresses -HostName $hostName
                 if ($resolved.IPv4Addresses.Count -gt 0) {
                     $ipv4 = $resolved.IPv4Addresses
@@ -624,7 +639,7 @@ try {
         }
     }
 
-    if ($IncludeReplicationConnections) {
+    if ($effectiveIncludeReplicationConnections) {
         $connectionObjects = Invoke-CollectionStep -Name "Get-ADReplicationConnection" -ScriptBlock {
             @(Get-ADReplicationConnection -Filter * -Properties * @adParams)
         }
@@ -664,7 +679,7 @@ try {
         }
     }
 
-    if ($IncludeReplicationMetadata) {
+    if ($effectiveIncludeReplicationMetadata) {
         $replicationParams = @{}
         if ($Credential) {
             $replicationParams["Credential"] = $Credential
@@ -893,7 +908,7 @@ try {
         }
     }
 
-    if ($IncludeSrvRecordSummary) {
+    if ($effectiveIncludeSrvRecordSummary) {
         $queries = @()
         if ($collection.Metadata.ForestName) {
             $queries += "_ldap._tcp.dc._msdcs.$($collection.Metadata.ForestName)"

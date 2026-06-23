@@ -55,6 +55,32 @@ Or run the steps manually:
   -ConfigCsv .\04-examples\mock-forest-sites\diagram-inputs.csv
 ```
 
+## Live Collection Scope
+
+For live AD collection, run the discovery script once for the AD forest or project collection scope, not once against every domain controller.
+
+In this toolkit, a collection scope means the AD environment you want represented by one evidence package and one diagram set. In the normal case, that is a single AD forest, including its sites, subnets, site links, domains, discovered domain controllers, and optional replication/DNS evidence. Use `-Server` only when you need to choose a reachable domain controller or AD Web Services endpoint for the query entry point; that server is not the only DC being inventoried.
+
+Use this rule of thumb:
+
+- One forest with one domain: run once for the forest.
+- One forest with parent/child domains: run once for the forest, not once per domain.
+- Multiple forests, including trusted forests: run once per forest and keep each forest's raw/output folders separate.
+
+In AD terminology, a child domain is still part of the same forest. A separate forest, even if it has a trust relationship with another forest, is a separate collection scope.
+
+Run targeted follow-up collections only when the first export shows missing domains, missing DCs, warnings, or connectivity/permission gaps that require a narrower rerun.
+
+For the standard live inventory export, use `-FullInventory`:
+
+```powershell
+.\01-discovery\Export-ADSitesAndServicesInventory.ps1 `
+  -OutputPath .\05-projects\my-ad-sites-project\raw `
+  -FullInventory
+```
+
+`-FullInventory` enables configured replication connections, observed replication metadata, DC hostname DNS resolution, and SRV record summary collection. The individual switches remain available when a restricted or troubleshooting run needs only part of that evidence.
+
 ## Current State
 
 This folder now owns the AD Sites and Services discovery context. `Export-ADSitesAndServicesInventory.ps1` collects core read-only AD site, subnet, site-link, domain controller, optional SRV/DNS address data, and optional replication evidence into a `*.sites.collection.json` file.

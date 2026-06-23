@@ -67,14 +67,27 @@ Expected rendered outputs:
 
 ## Live AD Inventory Export
 
+Run live discovery once for the AD forest or project collection scope, not once against every domain controller.
+
+A collection scope is the AD environment intended to be represented by one raw evidence package and one normalized diagram set. For most runs, the scope is one AD forest: its sites, subnets, site links, domains, discovered domain controllers, and optional replication/DNS evidence. If `-Server` is provided, treat it as the reachable domain controller or AD Web Services endpoint used to start the query; it is not a filter limiting collection to that one DC.
+
+Use this rule of thumb:
+
+- One forest with one domain: run once for the forest.
+- One forest with parent/child domains: run once for the forest, not once per domain.
+- Multiple forests, including trusted forests: run once per forest and keep each forest's raw/output folders separate.
+
+In AD terminology, a child domain is still part of the same forest. A separate forest, even if it has a trust relationship with another forest, is a separate collection scope.
+
+Use targeted reruns only when the initial export reports missing domains, missing DCs, warnings, or connectivity/permission gaps that require a narrower collection.
+
 ```powershell
 .\01-discovery\Export-ADSitesAndServicesInventory.ps1 `
   -OutputPath .\05-projects\my-ad-sites-project\raw `
-  -IncludeReplicationConnections `
-  -IncludeReplicationMetadata `
-  -ResolveDns `
-  -IncludeSrvRecordSummary
+  -FullInventory
 ```
+
+`-FullInventory` is the standard full evidence collection option. It enables `-IncludeReplicationConnections`, `-IncludeReplicationMetadata`, `-ResolveDns`, and `-IncludeSrvRecordSummary` for the run. Use the individual switches only when a restricted or troubleshooting run needs a smaller evidence set.
 
 Expected output:
 

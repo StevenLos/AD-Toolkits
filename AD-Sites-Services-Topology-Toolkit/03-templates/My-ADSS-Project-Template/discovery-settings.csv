@@ -8,7 +8,9 @@ ProviderDefault,On-Premises,Default provider value for generated diagram objects
 ZoneDefault,Directory Services,Default zone value for generated diagram objects
 PortProfile,default-ad-ds,Default generated port profile name
 CollectIpTransport,true,Collect transport-level bridge-all-site-links settings when possible
+FullInventory,false,Set true for the standard full evidence live collection
 IncludeReplicationConnections,false,Set true to collect configured AD replication connection objects
 IncludeReplicationMetadata,false,Set true to collect observed replication partner metadata failures and queue indicators
 ResolveDns,false,Set true to resolve domain controller hostnames during discovery
+IncludeSrvRecordSummary,false,Set true to query DC locator and related SRV records
 Anonymize,false,Set true to generate anonymized outputs

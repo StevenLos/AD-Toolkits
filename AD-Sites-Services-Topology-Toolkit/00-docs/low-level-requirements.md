@@ -81,10 +81,12 @@ Required parameters:
 | `Server` | No | Domain controller or AD Web Services endpoint to query. |
 | `Credential` | No | Alternate credential for AD queries. |
 | `ForestName` | No | Optional forest target when not inferred from current context. |
+| `FullInventory` | No | Convenience switch that enables configured replication connections, observed replication metadata, DC hostname DNS resolution, and SRV record summary collection. |
 | `IncludeReplicationConnections` | No | Collect configured replication connection objects when enabled. |
 | `IncludeReplicationMetadata` | No | Collect observed replication partner metadata, failures, queue indicators, derived topology edges, and health summary where available. |
 | `CollectIpTransport` | No | Collect transport-level bridge-all-site-links settings when possible. |
 | `ResolveDns` | No | Resolve domain controller hostnames to IP addresses. |
+| `IncludeSrvRecordSummary` | No | Query DC locator and related SRV records for summary evidence. |
 | `Anonymize` | No | Replace sensitive names/IPs with deterministic placeholders. |
 | `Force` | No | Overwrite existing export files. |
 | `PassThru` | No | Return a summary object to the pipeline. |
@@ -653,9 +655,11 @@ Required settings:
 - `ZoneDefault`
 - `PortProfile`
 - `CollectIpTransport`
+- `FullInventory`
 - `IncludeReplicationConnections`
 - `IncludeReplicationMetadata`
 - `ResolveDns`
+- `IncludeSrvRecordSummary`
 - `Anonymize`
 
 ## 8. Security Requirements
