@@ -56,6 +56,8 @@ Run once per DNS server in scope:
   -OutputPath .\input\discovery-collections
 ```
 
+Repeat the DNS collection for every DNS server that should appear in the final map. The collector can be run locally on each DNS server, or remotely from a central Windows collector host by changing `-DnsServer` for each target DNS server when remote DNS management is allowed. If direct remote DNS management is blocked but PowerShell remoting is available, invoke the collector on each DNS server through remoting and copy the generated `*.collection.json` files back into `input/discovery-collections`.
+
 Expected output:
 
 ```text

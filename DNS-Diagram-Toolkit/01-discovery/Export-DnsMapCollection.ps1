@@ -212,7 +212,7 @@ function Get-DnsResourceRecordsSafe {
     )
 
     $records = Invoke-CollectionStep -Name "Get-DnsServerResourceRecord $ZoneName $RecordType" -ScriptBlock {
-        @(Get-DnsServerResourceRecord -ComputerName $ServerName -ZoneName $ZoneName -RRType $RecordType)
+        @(Get-DnsServerResourceRecord -ComputerName $ServerName -ZoneName $ZoneName -RRType $RecordType -ErrorAction Stop -WarningAction SilentlyContinue)
     }
 
     if ($null -eq $records) {
@@ -271,15 +271,15 @@ try {
     }
 
     $serverObject = Invoke-CollectionStep -Name "Get-DnsServer" -ScriptBlock {
-        Get-DnsServer -ComputerName $DnsServer
+        Get-DnsServer -ComputerName $DnsServer -ErrorAction Stop -WarningAction SilentlyContinue
     }
 
     $serverSettings = Invoke-CollectionStep -Name "Get-DnsServerSetting" -ScriptBlock {
         try {
-            Get-DnsServerSetting -ComputerName $DnsServer -All
+            Get-DnsServerSetting -ComputerName $DnsServer -All -ErrorAction Stop -WarningAction SilentlyContinue
         }
         catch {
-            Get-DnsServerSetting -ComputerName $DnsServer
+            Get-DnsServerSetting -ComputerName $DnsServer -ErrorAction Stop -WarningAction SilentlyContinue
         }
     }
 
@@ -312,7 +312,7 @@ try {
     )
 
     $forwarderObject = Invoke-CollectionStep -Name "Get-DnsServerForwarder" -ScriptBlock {
-        Get-DnsServerForwarder -ComputerName $DnsServer
+        Get-DnsServerForwarder -ComputerName $DnsServer -ErrorAction Stop -WarningAction SilentlyContinue
     }
     $forwarderAddresses = ConvertTo-StringArray -Value (Get-ObjectPropertyValue -InputObject $forwarderObject -Names @("IPAddress", "IPAddresses"))
     $forwarderOrder = 0
@@ -329,7 +329,7 @@ try {
     }
 
     $rootHintObjects = Invoke-CollectionStep -Name "Get-DnsServerRootHint" -ScriptBlock {
-        @(Get-DnsServerRootHint -ComputerName $DnsServer)
+        @(Get-DnsServerRootHint -ComputerName $DnsServer -ErrorAction Stop -WarningAction SilentlyContinue)
     }
     foreach ($rootHint in @($rootHintObjects)) {
         $recordData = Get-ObjectPropertyValue -InputObject $rootHint -Names @("RecordData")
@@ -350,13 +350,13 @@ try {
     }
 
     $zoneObjects = Invoke-CollectionStep -Name "Get-DnsServerZone" -ScriptBlock {
-        @(Get-DnsServerZone -ComputerName $DnsServer)
+        @(Get-DnsServerZone -ComputerName $DnsServer -ErrorAction Stop -WarningAction SilentlyContinue)
     }
 
     $conditionalForwarderZones = @()
     if (Get-Command Get-DnsServerConditionalForwarderZone -ErrorAction SilentlyContinue) {
         $conditionalForwarderZones = Invoke-CollectionStep -Name "Get-DnsServerConditionalForwarderZone" -ScriptBlock {
-            @(Get-DnsServerConditionalForwarderZone -ComputerName $DnsServer)
+            @(Get-DnsServerConditionalForwarderZone -ComputerName $DnsServer -ErrorAction Stop -WarningAction SilentlyContinue)
         }
         if ($null -eq $conditionalForwarderZones) {
             $conditionalForwarderZones = @()
@@ -380,7 +380,7 @@ try {
         }
 
         $zoneAging = Invoke-CollectionStep -Name "Get-DnsServerZoneAging $zoneName" -ScriptBlock {
-            Get-DnsServerZoneAging -ComputerName $DnsServer -Name $zoneName
+            Get-DnsServerZoneAging -ComputerName $DnsServer -Name $zoneName -ErrorAction Stop -WarningAction SilentlyContinue
         }
 
         $soaRecords = @(Get-DnsResourceRecordsSafe -ServerName $DnsServer -ZoneName $zoneName -RecordType "SOA" | ForEach-Object {
@@ -393,7 +393,7 @@ try {
         $delegations = @()
         if (Get-Command Get-DnsServerZoneDelegation -ErrorAction SilentlyContinue) {
             $delegationObjects = Invoke-CollectionStep -Name "Get-DnsServerZoneDelegation $zoneName" -ScriptBlock {
-                @(Get-DnsServerZoneDelegation -ComputerName $DnsServer -ZoneName $zoneName)
+                @(Get-DnsServerZoneDelegation -ComputerName $DnsServer -ZoneName $zoneName -ErrorAction Stop -WarningAction SilentlyContinue)
             }
             foreach ($delegation in @($delegationObjects)) {
                 $delegations += [pscustomobject]@{

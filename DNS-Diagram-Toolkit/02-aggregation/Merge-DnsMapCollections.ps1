@@ -362,7 +362,7 @@ function Resolve-DnsServerSite {
         [Parameter(Mandatory = $true)][string]$ServerName,
         [Parameter()][string[]]$IPAddresses,
         [Parameter(Mandatory = $true)][hashtable]$DomainControllerLookup,
-        [Parameter(Mandatory = $true)][object[]]$Subnets
+        [Parameter()][AllowEmptyCollection()][object[]]$Subnets = @()
     )
 
     foreach ($key in (Get-NameKeys -Name $ServerName)) {

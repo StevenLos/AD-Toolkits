@@ -66,6 +66,8 @@ If DNS diagrams should include AD site/subnet context, generate that collection 
 
 The full current-state flow is implemented. Live DNS discovery must be run from a Windows host with the `DnsServer` PowerShell module available. Optional AD site/subnet enrichment comes from the separate `AD-Sites-Services-Topology-Toolkit` folder. The offline CSV render path can be tested anywhere PowerShell and Python are available.
 
+DNS collection must be run once for every DNS server that should appear in the map. You can run the collector locally on each DNS server, or run it from a central Windows collector host by passing each server name to `-DnsServer` if remote DNS management access is available. If direct remote DNS management is blocked but PowerShell remoting is allowed, run the collector through remoting on each DNS server and copy the resulting `*.collection.json` files back into `input/discovery-collections`.
+
 Implemented offline render:
 
 ```powershell
