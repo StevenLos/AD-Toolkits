@@ -19,13 +19,16 @@ It follows the sibling `DNS-Diagram-Toolkit` and `Time-Server-Toolkit` workflow:
 
 ## Current-State Quick Start
 
-Run live discovery from a Windows host with the Active Directory PowerShell module:
+Run live discovery from a Windows host with the Active Directory PowerShell module. In most environments, run discovery once per domain and target a reachable writable DC in that domain. You do not need to run the collector on every DC; it enumerates DCs through AD and then checks each discovered DC from the collector's network perspective.
 
 ```powershell
 .\01-discovery\Export-ADDomainControllerHealthCollection.ps1 `
   -Server dc01.contoso.com `
+  -DomainName contoso.com `
   -OutputPath .\input\discovery-collections
 ```
+
+Run additional collections only when you have multiple domains, site-specific firewall visibility, or DCs that are reachable only from a different collector/jump host.
 
 Discovery writes both:
 

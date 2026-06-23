@@ -2,13 +2,16 @@
 
 ## 1. Collect
 
-Run discovery from a domain-joined Windows host with the Active Directory module:
+Run discovery from a domain-joined Windows host with the Active Directory module. Default operating model: run once per domain and target a reachable writable DC in that domain. Do not run it on every DC unless you specifically need collector-perspective checks from multiple network locations.
 
 ```powershell
 .\01-discovery\Export-ADDomainControllerHealthCollection.ps1 `
   -Server dc01.contoso.com `
+  -DomainName contoso.com `
   -OutputPath .\input\discovery-collections
 ```
+
+Run additional collections when the forest has multiple domains, network/firewall visibility differs by site, or a subset of DCs is reachable only from a different jump host.
 
 The collector writes both a machine-readable JSON file and a human-readable CSV summary:
 
